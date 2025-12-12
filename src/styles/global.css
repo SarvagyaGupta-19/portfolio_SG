@@ -1,0 +1,407 @@
+@import "tailwindcss";
+
+/* Modern, smooth scrolling */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+body {
+  font-family: 'IBM Plex Mono', monospace;
+  background-color: #ffffff;
+  color: #1f2937;
+  overflow-x: hidden;
+  position: relative;
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="36" viewBox="0 0 32 36"><defs><linearGradient id="goldenGrad" x1="0%%" y1="0%%" x2="100%%" y2="100%%"><stop offset="0%%" style="stop-color:%23ffd966;stop-opacity:1" /><stop offset="40%%" style="stop-color:%23f4b942;stop-opacity:1" /><stop offset="100%%" style="stop-color:%23d4941c;stop-opacity:1" /></linearGradient><linearGradient id="darkGrad" x1="0%%" y1="0%%" x2="100%%" y2="100%%"><stop offset="0%%" style="stop-color:%23505566;stop-opacity:1" /><stop offset="100%%" style="stop-color:%232a2d3a;stop-opacity:1" /></linearGradient><filter id="shadow"><feDropShadow dx="1" dy="2" stdDeviation="1.5" flood-color="%23000000" flood-opacity="0.4"/></filter></defs><g filter="url(%23shadow)"><path d="M3 2 L3 30 L16 19 L22 28 L24 26 L18 17 L29 15 Z" fill="url(%23darkGrad)" stroke="%231a1d28" stroke-width="1.2" stroke-linejoin="round"/><path d="M4 4 L4 28 L15 18 L21 26 L22.5 24.5 L17 16 L27 14 L4 4 Z" fill="url(%23goldenGrad)" stroke="%23d4941c" stroke-width="1" stroke-linejoin="round"/><ellipse cx="6" cy="8" rx="2" ry="1.5" fill="%23fff9e6" opacity="0.6"/></g></svg>') 3 2, auto;
+}
+
+/* Golden hand cursor for interactive elements */
+a, button, [role="button"], input[type="submit"], input[type="button"], .clickable {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36"><defs><linearGradient id="handGolden" x1="0%%" y1="0%%" x2="100%%" y2="100%%"><stop offset="0%%" style="stop-color:%23ffd966;stop-opacity:1" /><stop offset="40%%" style="stop-color:%23f4b942;stop-opacity:1" /><stop offset="100%%" style="stop-color:%23d4941c;stop-opacity:1" /></linearGradient><linearGradient id="handDark" x1="0%%" y1="0%%" x2="100%%" y2="100%%"><stop offset="0%%" style="stop-color:%23505566;stop-opacity:1" /><stop offset="100%%" style="stop-color:%232a2d3a;stop-opacity:1" /></linearGradient><filter id="handShadow"><feDropShadow dx="1" dy="2" stdDeviation="1.5" flood-color="%23000000" flood-opacity="0.4"/></filter></defs><g filter="url(%23handShadow)"><path d="M14 24 L14 14 C14 12.5 15 11.5 16 11.5 C17 11.5 18 12.5 18 14 L18 11 C18 9.5 19 8.5 20 8.5 C21 8.5 22 9.5 22 11 L22 9.5 C22 8 23 7 24 7 C25 7 26 8 26 9.5 L26 11 C26 9.5 27 8.5 28 8.5 C29 8.5 30 9.5 30 11 L30 20 C30 25 27 29 22 29 L17 29 C13 29 11 27 10 24 L8 19 C7.5 18 8 16.5 9.5 16.5 C10.5 16.5 11.5 17 12 18 L14 22 L14 24 Z" fill="url(%23handDark)" stroke="%231a1d28" stroke-width="1"/><path d="M14.5 23 L14.5 14 C14.5 12.8 15.3 12 16.2 12 C17 12 17.5 12.8 17.5 14 L17.5 11.5 C17.5 10.3 18.3 9.5 19.2 9.5 C20 9.5 20.5 10.3 20.5 11.5 L20.5 10 C20.5 8.8 21.3 8 22.2 8 C23 8 23.5 8.8 23.5 10 L23.5 11.5 C23.5 10.3 24.3 9.5 25.2 9.5 C26 9.5 26.5 10.3 26.5 11.5 L26.5 19.5 C26.5 24 24 27.5 19.5 27.5 L16 27.5 C12.5 27.5 11 25.8 10.3 23.2 L8.8 19.2 C8.5 18.5 8.8 17.5 9.8 17.5 C10.5 17.5 11.2 17.8 11.6 18.5 L13.5 21.5 L14.5 23 Z" fill="url(%23handGolden)" stroke="%23d4941c" stroke-width="0.8"/><circle cx="17" cy="13" r="1.2" fill="%23fff9e6" opacity="0.5"/><circle cx="20" cy="11" r="1" fill="%23fff9e6" opacity="0.5"/><circle cx="23" cy="10" r="1" fill="%23fff9e6" opacity="0.5"/></g></svg>') 18 6, pointer;
+}
+
+/* Prevent flash of unstyled content */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 100%);
+  z-index: 10001;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Selection color */
+::selection {
+  background-color: rgba(66, 133, 244, 0.3);
+  color: #1f2937;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f3f4f6;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4285f4;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #7c3aed;
+}
+
+/* Smooth transitions for all interactive elements */
+button, a, input, textarea {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Focus styles for accessibility */
+*:focus-visible {
+  outline: 2px solid #4285f4;
+  outline-offset: 2px;
+}
+
+/* Gradient text utility */
+.gradient-text {
+  background: linear-gradient(135deg, #4285f4 0%, #34a853 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Animation utilities */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.animate-slideInRight {
+  animation: slideInRight 0.8s ease-out forwards;
+}
+
+/* Stagger animation delays */
+.animation-delay-200 {
+  animation-delay: 0.2s;
+}
+
+.animation-delay-400 {
+  animation-delay: 0.4s;
+}
+
+.animation-delay-600 {
+  animation-delay: 0.6s;
+}
+
+/* Glass morphism effect */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Card hover effects */
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Loading animation */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Scroll reveal animations */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-reveal-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.scroll-reveal-left.revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scroll-reveal-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.scroll-reveal-right.revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scroll-reveal-scale {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.scroll-reveal-scale.revealed {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Stagger animation delays */
+.scroll-reveal:nth-child(1) { transition-delay: 0s; }
+.scroll-reveal:nth-child(2) { transition-delay: 0.1s; }
+.scroll-reveal:nth-child(3) { transition-delay: 0.2s; }
+.scroll-reveal:nth-child(4) { transition-delay: 0.3s; }
+.scroll-reveal:nth-child(5) { transition-delay: 0.4s; }
+.scroll-reveal:nth-child(6) { transition-delay: 0.5s; }
+
+/* Parallax effect */
+.parallax {
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Smooth section transitions */
+section, main > div {
+  position: relative;
+  will-change: transform;
+}
+
+/* Text shimmer effect */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.text-shimmer {
+  background: linear-gradient(
+    90deg,
+    #4285f4 0%,
+    #ea4335 25%,
+    #fbbc04 50%,
+    #34a853 75%,
+    #4285f4 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Glow effect */
+.glow {
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+  transition: box-shadow 0.3s ease;
+}
+
+.glow:hover {
+  box-shadow: 0 0 30px rgba(139, 92, 246, 0.5);
+}
+
+/* Smooth hover transforms */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Page transitions */
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-enter {
+  animation: pageEnter 0.6s ease-out;
+}
+
+/* Backdrop blur utilities */
+.backdrop-blur-xs {
+  backdrop-filter: blur(2px);
+}
+
+.backdrop-blur-sm {
+  backdrop-filter: blur(4px);
+}
+
+.backdrop-blur-md {
+  backdrop-filter: blur(8px);
+}
+
+.backdrop-blur-lg {
+  backdrop-filter: blur(16px);
+}
+
+.backdrop-blur-xl {
+  backdrop-filter: blur(24px);
+}
+
+/* Gradient borders */
+.gradient-border {
+  position: relative;
+  background: white;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(135deg, #4285f4, #34a853);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+/* Smooth transitions for all interactive elements */
+a, button, input, textarea, select {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Ensure hand cursor for all clickable elements */
+.nav-link, .social-icon-realistic, .skill-tag-google, .group {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36"><defs><linearGradient id="handGolden2" x1="0%%" y1="0%%" x2="100%%" y2="100%%"><stop offset="0%%" style="stop-color:%23ffd966;stop-opacity:1" /><stop offset="40%%" style="stop-color:%23f4b942;stop-opacity:1" /><stop offset="100%%" style="stop-color:%23d4941c;stop-opacity:1" /></linearGradient><linearGradient id="handDark2" x1="0%%" y1="0%%" x2="100%%" y2="100%%"><stop offset="0%%" style="stop-color:%23505566;stop-opacity:1" /><stop offset="100%%" style="stop-color:%232a2d3a;stop-opacity:1" /></linearGradient><filter id="handShadow2"><feDropShadow dx="1" dy="2" stdDeviation="1.5" flood-color="%23000000" flood-opacity="0.4"/></filter></defs><g filter="url(%23handShadow2)"><path d="M14 24 L14 14 C14 12.5 15 11.5 16 11.5 C17 11.5 18 12.5 18 14 L18 11 C18 9.5 19 8.5 20 8.5 C21 8.5 22 9.5 22 11 L22 9.5 C22 8 23 7 24 7 C25 7 26 8 26 9.5 L26 11 C26 9.5 27 8.5 28 8.5 C29 8.5 30 9.5 30 11 L30 20 C30 25 27 29 22 29 L17 29 C13 29 11 27 10 24 L8 19 C7.5 18 8 16.5 9.5 16.5 C10.5 16.5 11.5 17 12 18 L14 22 L14 24 Z" fill="url(%23handDark2)" stroke="%231a1d28" stroke-width="1"/><path d="M14.5 23 L14.5 14 C14.5 12.8 15.3 12 16.2 12 C17 12 17.5 12.8 17.5 14 L17.5 11.5 C17.5 10.3 18.3 9.5 19.2 9.5 C20 9.5 20.5 10.3 20.5 11.5 L20.5 10 C20.5 8.8 21.3 8 22.2 8 C23 8 23.5 8.8 23.5 10 L23.5 11.5 C23.5 10.3 24.3 9.5 25.2 9.5 C26 9.5 26.5 10.3 26.5 11.5 L26.5 19.5 C26.5 24 24 27.5 19.5 27.5 L16 27.5 C12.5 27.5 11 25.8 10.3 23.2 L8.8 19.2 C8.5 18.5 8.8 17.5 9.8 17.5 C10.5 17.5 11.2 17.8 11.6 18.5 L13.5 21.5 L14.5 23 Z" fill="url(%23handGolden2)" stroke="%23d4941c" stroke-width="0.8"/><circle cx="17" cy="13" r="1.2" fill="%23fff9e6" opacity="0.5"/><circle cx="20" cy="11" r="1" fill="%23fff9e6" opacity="0.5"/><circle cx="23" cy="10" r="1" fill="%23fff9e6" opacity="0.5"/></g></svg>') 18 6, pointer;
+}
+
+/* Enhanced interactive hover effects */
+a:not(.no-underline), button {
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+a:hover, button:hover {
+  transform: translateY(-2px);
+}
+
+/* Magnetic hover effect for buttons */
+button:hover {
+  box-shadow: 0 10px 30px -10px rgba(66, 133, 244, 0.4);
+}
+
+/* Glow effect on hover */
+.nav-link:hover {
+  text-shadow: 0 0 8px rgba(66, 133, 244, 0.5);
+}
+
+/* Card hover animations */
+.group:hover {
+  animation: cardFloat 0.6s ease-in-out;
+}
+
+@keyframes cardFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Performance optimizations */
+img, video {
+  will-change: transform;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .custom-cursor {
+    display: none !important;
+  }
+}

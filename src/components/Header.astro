@@ -1,0 +1,457 @@
+---
+import { siteConfig } from "../config";
+
+const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
+const hasExperience = siteConfig.experience && siteConfig.experience.length > 0;
+const hasEducation = siteConfig.education && siteConfig.education.length > 0;
+const hasCertifications = siteConfig.certifications && siteConfig.certifications.length > 0;
+---
+
+<header
+  id="header"
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
+  style={`--accent-color: ${siteConfig.accentColor}`}
+>
+  <nav class="max-w-7xl mx-auto px-6 py-5">
+    <div class="flex items-center justify-between">
+      <!-- Logo/Brand -->
+      <a href="#hero" class="logo-container group">
+        <div class="logo-icon">
+          <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" class="w-10 h-10">
+            <circle cx="20" cy="20" r="18" class="logo-circle" />
+            <path d="M12 20 Q15 15 20 17 T28 20" class="logo-path" />
+            <path d="M12 23 Q15 28 20 26 T28 23" class="logo-path" />
+            <circle cx="15" cy="18" r="2" class="logo-dot" />
+            <circle cx="20" cy="19" r="2" class="logo-dot" />
+            <circle cx="25" cy="18" r="2" class="logo-dot" />
+          </svg>
+        </div>
+        <span class="logo-text">AI/ML</span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <ul class="hidden md:flex items-center gap-1">
+        <li>
+          <a href="#about" class="nav-link" data-section="about">
+            <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            <span class="nav-link-text">About</span>
+          </a>
+        </li>
+        <li>
+          <a href="#skills" class="nav-link" data-section="skills">
+            <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+            </svg>
+            <span class="nav-link-text">Skills</span>
+          </a>
+        </li>
+        {hasProjects && (
+          <li>
+            <a href="#projects" class="nav-link" data-section="projects">
+              <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+              </svg>
+              <span class="nav-link-text">Projects</span>
+            </a>
+          </li>
+        )}
+        {hasExperience && (
+          <li>
+            <a href="#experience" class="nav-link" data-section="experience">
+              <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+              </svg>
+              <span class="nav-link-text">Experience</span>
+            </a>
+          </li>
+        )}
+        {hasCertifications && (
+          <li>
+            <a href="#certifications" class="nav-link" data-section="certifications">
+              <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+              <span class="nav-link-text">Certs</span>
+            </a>
+          </li>
+        )}
+        {hasEducation && (
+          <li>
+            <a href="#education" class="nav-link" data-section="education">
+              <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+              </svg>
+              <span class="nav-link-text">Education</span>
+            </a>
+          </li>
+        )}
+      </ul>
+
+      <!-- Resume & Contact CTAs -->
+      <div class="hidden md:flex items-center gap-3">
+        <a 
+          href="/resume.pdf"
+          target="_blank"
+          class="flex items-center gap-2 px-5 py-2.5 bg-white border-2 border-[var(--accent-color)] text-[var(--accent-color)] rounded-full font-medium transition-all duration-300 hover:bg-[var(--accent-color)] hover:text-white hover:shadow-lg hover:scale-105"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+          </svg>
+          Resume
+        </a>
+        <a 
+          href={`mailto:${siteConfig.social?.email || 'your-email@example.com'}`}
+          class="flex items-center gap-2 px-5 py-2.5 bg-[var(--accent-color)] text-white rounded-full font-medium transition-all duration-300 hover:shadow-lg hover:scale-105 hover:shadow-[var(--accent-color)]/50"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" />
+            <path d="M3 7l9 6l9 -6" />
+          </svg>
+          Contact
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Progress Bar -->
+  <div class="progress-bar-container">
+    <div id="progress-bar" class="progress-bar"></div>
+  </div>
+</header>
+
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="mobile-menu">
+  <div class="mobile-menu-content">
+    <button id="mobile-menu-close" class="mobile-menu-close">
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+    
+    <ul class="mobile-menu-links">
+      <li><a href="#about" class="mobile-link">About</a></li>
+      <li><a href="#skills" class="mobile-link">Skills</a></li>
+      {hasProjects && <li><a href="#projects" class="mobile-link">Projects</a></li>}
+      {hasExperience && <li><a href="#experience" class="mobile-link">Experience</a></li>}
+      {hasCertifications && <li><a href="#certifications" class="mobile-link">Certifications</a></li>}
+      {hasEducation && <li><a href="#education" class="mobile-link">Education</a></li>}
+    </ul>
+
+    <a 
+      href={`mailto:${siteConfig.social?.email || 'your-email@example.com'}`}
+      class="mobile-contact-btn"
+    >
+      Contact Me
+    </a>
+  </div>
+</div>
+
+<script>
+  // Header scroll effect
+  let lastScroll = 0;
+  const header = document.getElementById("header");
+  const progressBar = document.getElementById("progress-bar");
+
+  window.addEventListener("scroll", () => {
+    const currentScroll = window.pageYOffset;
+    
+    // Show/hide header based on scroll direction
+    if (currentScroll > lastScroll && currentScroll > 100) {
+      header?.classList.add("header-hidden");
+    } else {
+      header?.classList.remove("header-hidden");
+    }
+    
+    // Add background when scrolled
+    if (currentScroll > 50) {
+      header?.classList.add("header-scrolled");
+    } else {
+      header?.classList.remove("header-scrolled");
+    }
+    
+    lastScroll = currentScroll;
+
+    // Update progress bar
+    const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (currentScroll / windowHeight) * 100;
+    if (progressBar) {
+      progressBar.style.width = `${scrolled}%`;
+    }
+
+    // Active section highlighting
+    const sections = document.querySelectorAll('section, div[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 100;
+      const sectionHeight = section.clientHeight;
+      const sectionId = section.getAttribute('id');
+      
+      if (currentScroll >= sectionTop && currentScroll < sectionTop + sectionHeight) {
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('data-section') === sectionId) {
+            link.classList.add('active');
+          }
+        });
+      }
+    });
+  });
+
+  // Mobile menu
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileMenuClose = document.getElementById('mobile-menu-close');
+  const mobileLinks = document.querySelectorAll('.mobile-link');
+
+  mobileMenuBtn?.addEventListener('click', () => {
+    mobileMenu?.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  });
+
+  mobileMenuClose?.addEventListener('click', () => {
+    mobileMenu?.classList.remove('open');
+    document.body.style.overflow = 'auto';
+  });
+
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu?.classList.remove('open');
+      document.body.style.overflow = 'auto';
+    });
+  });
+</script>
+
+<style define:vars={{ accentColor: siteConfig.accentColor }}>
+  :root {
+    --accent-color: var(--accentColor);
+  }
+
+  #header {
+    background: transparent;
+    box-shadow: none;
+  }
+
+  #header.header-scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  }
+
+  #header.header-hidden {
+    transform: translateY(-100%);
+  }
+
+  .progress-bar-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: rgba(139, 92, 246, 0.1);
+  }
+
+  .progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--accent-color) 0%, #ec4899 100%);
+    transition: width 0.1s ease;
+    box-shadow: 0 0 10px var(--accent-color);
+  }
+
+  .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+  }
+
+  .logo-container:hover {
+    transform: scale(1.05);
+  }
+
+  .logo-icon {
+    position: relative;
+  }
+
+  .logo-circle {
+    fill: none;
+    stroke: var(--accent-color);
+    stroke-width: 2;
+    transition: all 0.3s ease;
+  }
+
+  .logo-container:hover .logo-circle {
+    stroke: #ec4899;
+    filter: drop-shadow(0 0 8px var(--accent-color));
+  }
+
+  .logo-path {
+    fill: none;
+    stroke: var(--accent-color);
+    stroke-width: 1.5;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+  }
+
+  .logo-dot {
+    fill: var(--accent-color);
+    transition: all 0.3s ease;
+  }
+
+  .logo-container:hover .logo-dot {
+    fill: #ec4899;
+  }
+
+  .logo-text {
+    font-size: 1.25rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--accent-color) 0%, #ec4899 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.5px;
+  }
+
+  .nav-link {
+    position: relative;
+    display: block;
+    padding: 0.625rem 1rem;
+    color: #374151;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-radius: 0.5rem;
+  }
+
+  .nav-link:hover {
+    color: var(--accent-color);
+    background: rgba(139, 92, 246, 0.05);
+  }
+
+  .nav-link.active {
+    color: var(--accent-color);
+    background: rgba(139, 92, 246, 0.1);
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--accent-color);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+  }
+
+  .nav-link.active::after {
+    width: 60%;
+  }
+
+  /* Mobile Menu */
+  .mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    max-width: 400px;
+    height: 100vh;
+    background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 100%);
+    z-index: 9999;
+    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+  }
+
+  .mobile-menu.open {
+    right: 0;
+  }
+
+  .mobile-menu-content {
+    padding: 2rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mobile-menu-close {
+    align-self: flex-end;
+    color: white;
+    background: transparent;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .mobile-menu-close:hover {
+    transform: rotate(90deg);
+  }
+
+  .mobile-menu-links {
+    list-style: none;
+    padding: 0;
+    margin: 3rem 0;
+    flex: 1;
+  }
+
+  .mobile-link {
+    display: block;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 1rem 0;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .mobile-link:hover {
+    color: var(--accent-color);
+    padding-left: 1rem;
+  }
+
+  .mobile-contact-btn {
+    display: block;
+    text-align: center;
+    padding: 1rem;
+    background: var(--accent-color);
+    color: white;
+    font-weight: 600;
+    border-radius: 0.75rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .mobile-contact-btn:hover {
+    background: #ec4899;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(139, 92, 246, 0.3);
+  }
+
+  @media (max-width: 768px) {
+    .mobile-menu {
+      max-width: 100%;
+    }
+  }
+</style>

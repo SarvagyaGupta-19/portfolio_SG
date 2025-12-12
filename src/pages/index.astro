@@ -1,0 +1,173 @@
+---
+import Loader from "../components/Loader.astro";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import About from "../components/About.astro";
+import GithubStats from "../components/GithubStats.astro";
+import SkillsEnhanced from "../components/SkillsEnhanced.astro";
+import Projects from "../components/Projects.astro";
+import Experience from "../components/Experience.astro";
+import Certifications from "../components/Certifications.astro";
+import Education from "../components/Education.astro";
+import Footer from "../components/Footer.astro";
+import { siteConfig } from "../config";
+import "../styles/global.css";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={siteConfig.description} />
+    <meta name="keywords" content="AI, ML, Machine Learning, Deep Learning, LLM, RAG, Computer Vision, MLOps, PyTorch, TensorFlow" />
+    <meta name="author" content={siteConfig.name} />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={`${siteConfig.name} - ${siteConfig.title}`} />
+    <meta property="og:description" content={siteConfig.description} />
+    <meta property="og:site_name" content={siteConfig.name} />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={`${siteConfig.name} - ${siteConfig.title}`} />
+    <meta name="twitter:description" content={siteConfig.description} />
+    
+    <!-- Preload fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    
+    <title>{siteConfig.name} - {siteConfig.title}</title>
+  </head>
+  <body class="page-enter">
+    <!-- Loading Screen -->
+    <Loader />
+    
+    <!-- Header Navigation -->
+    <Header />
+    
+    <!-- Main Content -->
+    <main>
+      <Hero />
+      <About />
+      <GithubStats />
+      <SkillsEnhanced />
+      <Projects />
+      <Experience />
+      <Certifications />
+      <Education />
+    </main>
+    
+    <!-- Footer -->
+    <Footer />
+
+    <!-- Scroll Animation Script -->
+    <script>
+      // Scroll reveal animations
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+          }
+        });
+      }, observerOptions);
+
+      // Observe all scroll reveal elements
+      document.addEventListener('DOMContentLoaded', () => {
+        const scrollElements = document.querySelectorAll('.scroll-reveal, .scroll-reveal-left, .scroll-reveal-right, .scroll-reveal-scale');
+        scrollElements.forEach(el => observer.observe(el));
+      });
+
+      // Parallax scrolling for certain sections
+      let ticking = false;
+      
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.parallax');
+            
+            parallaxElements.forEach((el, index) => {
+              const speed = 0.5 + (index * 0.1);
+              const yPos = -(scrolled * speed);
+              el.style.transform = `translateY(${yPos}px)`;
+            });
+            
+            ticking = false;
+          });
+          
+          ticking = true;
+        }
+      });
+
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+
+      // Click and open sound effects
+      const clickSound = new Audio('data:audio/wav;base64,UklGRhYAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQIAAACA');
+      const openSound = new Audio('data:audio/wav;base64,UklGRiYAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQIAAACA');
+      
+      // Set volume for subtle effects
+      clickSound.volume = 0.3;
+      openSound.volume = 0.2;
+
+      // Add click sound to all clickable elements
+      document.addEventListener('DOMContentLoaded', () => {
+        const clickableElements = document.querySelectorAll('a, button, [role="button"], .clickable, .nav-link, .skill-tag-google');
+        
+        clickableElements.forEach(element => {
+          // Click sound on mousedown
+          element.addEventListener('mousedown', () => {
+            clickSound.currentTime = 0;
+            clickSound.play().catch(() => {});
+          });
+
+          // Open sound for external links
+          if (element.tagName === 'A' && (element.hasAttribute('target') || element.getAttribute('href')?.startsWith('http'))) {
+            element.addEventListener('click', () => {
+              setTimeout(() => {
+                openSound.currentTime = 0;
+                openSound.play().catch(() => {});
+              }, 100);
+            });
+          }
+        });
+
+        // Special handling for social icons
+        const socialIcons = document.querySelectorAll('.social-icon-realistic');
+        socialIcons.forEach(icon => {
+          icon.addEventListener('click', () => {
+            setTimeout(() => {
+              openSound.currentTime = 0;
+              openSound.play().catch(() => {});
+            }, 100);
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,111 @@
+---
+import { siteConfig } from "../config";
+const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
+---
+
+{
+  hasProjects && (
+    <section id="projects" class="relative overflow-hidden bg-gradient-to-b from-gray-50 to-white py-24">
+      {/* Background Pattern */}
+      <div class="absolute inset-0 opacity-[0.03]">
+        <div class="absolute inset-0" style="background-image: radial-gradient(circle at 1px 1px, rgb(0 0 0) 1px, transparent 0); background-size: 40px 40px;"></div>
+      </div>
+
+      <div class="container relative z-10 mx-auto max-w-7xl px-6">
+        {/* Section Header */}
+        <div class="mb-16 text-center">
+          <h2 class="mb-4 text-4xl font-bold text-gray-900 md:text-5xl">
+            Featured <span style={`color: ${siteConfig.accentColor}`}>Projects</span>
+          </h2>
+          <p class="mx-auto max-w-2xl text-lg text-gray-600">
+            A collection of my significant projects in AI/ML, computer vision, and scalable systems
+          </p>
+        </div>
+
+        {/* Projects Grid */}
+        <div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
+          {siteConfig.projects.map((project, index) => {
+                const Component = project.link ? "a" : "div";
+                const linkProps = project.link
+                  ? {
+                      href: project.link,
+                      target: "_blank",
+                      rel: "noopener noreferrer",
+                    }
+                  : {};
+
+                return (
+                  <Component
+                    {...linkProps}
+                    class={`group relative block overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-500 border border-gray-200 ${
+                      project.link
+                        ? "hover:shadow-2xl hover:-translate-y-2 hover:border-[var(--accent-color)]"
+                        : ""
+                    }`}
+                  >
+                    {/* Project Image/Gradient */}
+                    <div class="relative h-48 overflow-hidden bg-gradient-to-br" style={`background: linear-gradient(135deg, ${siteConfig.accentColor}20 0%, ${siteConfig.accentColor}40 100%)`}>
+                      <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="text-8xl font-bold opacity-10" style={`color: ${siteConfig.accentColor}`}>
+                          #{index + 1}
+                        </div>
+                      </div>
+                      {/* Animated gradient overlay on hover */}
+                      <div class="absolute inset-0 bg-gradient-to-br from-transparent via-white/5 to-white/10 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
+                    </div>
+
+                    {/* Project Content */}
+                    <div class="relative p-6">
+                      {/* External Link Icon */}
+                      {project.link && (
+                        <div class="absolute right-6 top-6 flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition-all duration-300 group-hover:bg-[var(--accent-color)] group-hover:text-white group-hover:scale-110">
+                          <svg
+                            class="h-5 w-5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                            />
+                          </svg>
+                        </div>
+                      )}
+
+                      <div class="mb-4">
+                        <h3 class="mb-2 pr-12 text-2xl font-bold text-gray-900 transition-colors duration-300 group-hover:text-[var(--accent-color)]">
+                          {project.name}
+                        </h3>
+                        <p class="text-base leading-relaxed text-gray-600">
+                          {project.description}
+                        </p>
+                      </div>
+
+                      {/* Skills Tags */}
+                      {project.skills && project.skills.length > 0 && (
+                        <div class="flex flex-wrap gap-2 pt-4 border-t border-gray-100">
+                          {project.skills.map((skill) => (
+                            <span class="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 transition-all duration-300 group-hover:bg-[var(--accent-color)]/10 group-hover:text-[var(--accent-color)]">
+                              {skill}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  </Component>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )
+    }
+
+<style define:vars={{ accentColor: siteConfig.accentColor }}>
+  :root {
+    --accent-color: var(--accentColor);
+  }
+</style>

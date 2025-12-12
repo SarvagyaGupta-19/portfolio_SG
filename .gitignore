@@ -1,0 +1,57 @@
+# build output
+dist/
+# generated types
+.astro/
+
+# dependencies
+node_modules/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+
+# environment variables
+.env
+.env.production
+
+# macOS-specific files
+.DS_Store
+
+# jetbrains setting folder
+.idea/
+
+# VSCode settings (optional, uncomment if you don't want to share settings)
+.vscode/
+
+# Editor directories
+.cursor/
+
+# Documentation files (development notes, not needed in production)
+CLAUDE.md
+CUSTOMIZATION_GUIDE.md
+OPTIMIZATION_TIPS.md
+TRANSFORMATION_SUMMARY.md
+VISUAL_GUIDE.md
+QUICK_REFERENCE.md
+AI_ML_PORTFOLIO_FINAL.md
+
+# OS generated files
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Package manager locks (keep package-lock.json, but ignore others)
+yarn.lock
+pnpm-lock.yaml
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+# Build artifacts
+*.tsbuildinfo
