@@ -47,6 +47,14 @@ import "../styles/global.css";
     <title>{siteConfig.name} - {siteConfig.title}</title>
   </head>
   <body class="page-enter">
+    <!-- Google-Inspired Animated Background -->
+    <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+      <div class="google-bg-orb google-blue"></div>
+      <div class="google-bg-orb google-red"></div>
+      <div class="google-bg-orb google-yellow"></div>
+      <div class="google-bg-orb google-green"></div>
+    </div>
+    
     <!-- Loading Screen -->
     <Loader />
     
@@ -67,6 +75,13 @@ import "../styles/global.css";
     
     <!-- Footer -->
     <Footer />
+
+    <!-- Scroll to Top Arrow Button -->
+    <button id="scroll-to-top" class="scroll-to-top-btn" aria-label="Scroll to top">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 19V5M5 12l7-7 7 7"/>
+      </svg>
+    </button>
 
     <!-- Scroll Animation Script -->
     <script>
@@ -135,9 +150,27 @@ import "../styles/global.css";
       clickSound.volume = 0.3;
       openSound.volume = 0.2;
 
+      // Scroll to top button functionality
+      const scrollToTopBtn = document.getElementById('scroll-to-top');
+      
+      window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 500) {
+          scrollToTopBtn?.classList.add('visible');
+        } else {
+          scrollToTopBtn?.classList.remove('visible');
+        }
+      });
+
+      scrollToTopBtn?.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+
       // Add click sound to all clickable elements
       document.addEventListener('DOMContentLoaded', () => {
-        const clickableElements = document.querySelectorAll('a, button, [role="button"], .clickable, .nav-link, .skill-tag-google');
+        const clickableElements = document.querySelectorAll('a, button, [role=\"button\"], .clickable, .nav-link, .skill-tag-minimal');
         
         clickableElements.forEach(element => {
           // Click sound on mousedown

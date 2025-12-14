@@ -4,20 +4,25 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 100px;
+  scrollbar-width: thin;
+  scrollbar-color: #4285f4 #f8f9fa;
 }
 
 body {
-  font-family: 'IBM Plex Mono', monospace;
-  background-color: #ffffff;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 50%, #ffffff 100%);
   color: #1f2937;
   overflow-x: hidden;
   position: relative;
-  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="36" viewBox="0 0 32 36"><defs><linearGradient id="goldenGrad" x1="0%%" y1="0%%" x2="100%%" y2="100%%"><stop offset="0%%" style="stop-color:%23ffd966;stop-opacity:1" /><stop offset="40%%" style="stop-color:%23f4b942;stop-opacity:1" /><stop offset="100%%" style="stop-color:%23d4941c;stop-opacity:1" /></linearGradient><linearGradient id="darkGrad" x1="0%%" y1="0%%" x2="100%%" y2="100%%"><stop offset="0%%" style="stop-color:%23505566;stop-opacity:1" /><stop offset="100%%" style="stop-color:%232a2d3a;stop-opacity:1" /></linearGradient><filter id="shadow"><feDropShadow dx="1" dy="2" stdDeviation="1.5" flood-color="%23000000" flood-opacity="0.4"/></filter></defs><g filter="url(%23shadow)"><path d="M3 2 L3 30 L16 19 L22 28 L24 26 L18 17 L29 15 Z" fill="url(%23darkGrad)" stroke="%231a1d28" stroke-width="1.2" stroke-linejoin="round"/><path d="M4 4 L4 28 L15 18 L21 26 L22.5 24.5 L17 16 L27 14 L4 4 Z" fill="url(%23goldenGrad)" stroke="%23d4941c" stroke-width="1" stroke-linejoin="round"/><ellipse cx="6" cy="8" rx="2" ry="1.5" fill="%23fff9e6" opacity="0.6"/></g></svg>') 3 2, auto;
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"20\" height=\"24\" viewBox=\"0 0 20 24\"><path d=\"M2 2 L2 22 L8 16 L12 22 L14 20 L10 14 L18 12 Z\" fill=\"%23000000\" stroke=\"%23ffffff\" stroke-width=\"0.5\"/></svg>') 2 2, auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
-/* Golden hand cursor for interactive elements */
+/* Clean hand cursor for interactive elements */
 a, button, [role="button"], input[type="submit"], input[type="button"], .clickable {
-  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36"><defs><linearGradient id="handGolden" x1="0%%" y1="0%%" x2="100%%" y2="100%%"><stop offset="0%%" style="stop-color:%23ffd966;stop-opacity:1" /><stop offset="40%%" style="stop-color:%23f4b942;stop-opacity:1" /><stop offset="100%%" style="stop-color:%23d4941c;stop-opacity:1" /></linearGradient><linearGradient id="handDark" x1="0%%" y1="0%%" x2="100%%" y2="100%%"><stop offset="0%%" style="stop-color:%23505566;stop-opacity:1" /><stop offset="100%%" style="stop-color:%232a2d3a;stop-opacity:1" /></linearGradient><filter id="handShadow"><feDropShadow dx="1" dy="2" stdDeviation="1.5" flood-color="%23000000" flood-opacity="0.4"/></filter></defs><g filter="url(%23handShadow)"><path d="M14 24 L14 14 C14 12.5 15 11.5 16 11.5 C17 11.5 18 12.5 18 14 L18 11 C18 9.5 19 8.5 20 8.5 C21 8.5 22 9.5 22 11 L22 9.5 C22 8 23 7 24 7 C25 7 26 8 26 9.5 L26 11 C26 9.5 27 8.5 28 8.5 C29 8.5 30 9.5 30 11 L30 20 C30 25 27 29 22 29 L17 29 C13 29 11 27 10 24 L8 19 C7.5 18 8 16.5 9.5 16.5 C10.5 16.5 11.5 17 12 18 L14 22 L14 24 Z" fill="url(%23handDark)" stroke="%231a1d28" stroke-width="1"/><path d="M14.5 23 L14.5 14 C14.5 12.8 15.3 12 16.2 12 C17 12 17.5 12.8 17.5 14 L17.5 11.5 C17.5 10.3 18.3 9.5 19.2 9.5 C20 9.5 20.5 10.3 20.5 11.5 L20.5 10 C20.5 8.8 21.3 8 22.2 8 C23 8 23.5 8.8 23.5 10 L23.5 11.5 C23.5 10.3 24.3 9.5 25.2 9.5 C26 9.5 26.5 10.3 26.5 11.5 L26.5 19.5 C26.5 24 24 27.5 19.5 27.5 L16 27.5 C12.5 27.5 11 25.8 10.3 23.2 L8.8 19.2 C8.5 18.5 8.8 17.5 9.8 17.5 C10.5 17.5 11.2 17.8 11.6 18.5 L13.5 21.5 L14.5 23 Z" fill="url(%23handGolden)" stroke="%23d4941c" stroke-width="0.8"/><circle cx="17" cy="13" r="1.2" fill="%23fff9e6" opacity="0.5"/><circle cx="20" cy="11" r="1" fill="%23fff9e6" opacity="0.5"/><circle cx="23" cy="10" r="1" fill="%23fff9e6" opacity="0.5"/></g></svg>') 18 6, pointer;
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M8 18 L8 10 C8 8.8 8.8 8 9.5 8 C10.2 8 11 8.8 11 10 L11 7.5 C11 6.3 11.8 5.5 12.5 5.5 C13.2 5.5 14 6.3 14 7.5 L14 6 C14 4.8 14.8 4 15.5 4 C16.2 4 17 4.8 17 6 L17 7.5 C17 6.3 17.8 5.5 18.5 5.5 C19.2 5.5 20 6.3 20 7.5 L20 15 C20 19 17.5 22 14 22 L10.5 22 C7.5 22 6 20.5 5.5 18.5 L4 14.5 C3.7 13.8 4 13 4.8 13 C5.4 13 6 13.3 6.3 13.8 L8 16.5 L8 18 Z" fill="%23000000" stroke="%23ffffff" stroke-width="0.5"/></svg>') 12 4, pointer;
 }
 
 /* Prevent flash of unstyled content */
@@ -35,47 +40,73 @@ body::before {
   transition: opacity 0.3s ease;
 }
 
+/* Improved Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+p, span, div {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  letter-spacing: -0.01em;
+  line-height: 1.6;
+}
+
 /* Selection color */
 ::selection {
   background-color: rgba(66, 133, 244, 0.3);
   color: #1f2937;
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar with Google colors */
 ::-webkit-scrollbar {
   width: 12px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f3f4f6;
+  background: #f8f9fa;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #4285f4;
+  background: linear-gradient(180deg, #4285f4 0%, #34a853 50%, #fbbc04 100%);
   border-radius: 6px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #7c3aed;
+  background: linear-gradient(180deg, #ea4335 0%, #4285f4 50%, #34a853 100%);
 }
 
 /* Smooth transitions for all interactive elements */
 button, a, input, textarea {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Focus styles for accessibility */
+/* Focus styles with Google colors */
 *:focus-visible {
   outline: 2px solid #4285f4;
   outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(66, 133, 244, 0.1);
 }
 
-/* Gradient text utility */
+/* Google-inspired gradient text utility */
 .gradient-text {
-  background: linear-gradient(135deg, #4285f4 0%, #34a853 100%);
+  background: linear-gradient(90deg, #4285f4 0%, #ea4335 25%, #fbbc04 50%, #34a853 75%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  background-size: 200% auto;
+  animation: gradientShift 8s ease infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% center;
+  }
+  50% {
+    background-position: 100% center;
+  }
 }
 
 /* Animation utilities */
@@ -122,6 +153,63 @@ button, a, input, textarea {
   animation: slideInRight 0.8s ease-out forwards;
 }
 
+/* Google-inspired animated background orbs */
+.google-bg-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.15;
+  animation: orbFloat 20s ease-in-out infinite;
+}
+
+@keyframes orbFloat {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(50px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-50px, 50px) scale(0.9);
+  }
+}
+
+.google-blue {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(66, 133, 244, 0.6) 0%, transparent 70%);
+  top: 10%;
+  left: -10%;
+  animation-delay: 0s;
+}
+
+.google-red {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(234, 67, 53, 0.6) 0%, transparent 70%);
+  top: 40%;
+  right: -15%;
+  animation-delay: 5s;
+}
+
+.google-yellow {
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(251, 188, 4, 0.6) 0%, transparent 70%);
+  bottom: 20%;
+  left: 10%;
+  animation-delay: 10s;
+}
+
+.google-green {
+  width: 550px;
+  height: 550px;
+  background: radial-gradient(circle, rgba(52, 168, 83, 0.6) 0%, transparent 70%);
+  bottom: -10%;
+  right: 20%;
+  animation-delay: 15s;
+}
+
 /* Stagger animation delays */
 .animation-delay-200 {
   animation-delay: 0.2s;
@@ -166,11 +254,12 @@ button, a, input, textarea {
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
-/* Scroll reveal animations */
+/* Scroll reveal animations - Slower and smoother */
 .scroll-reveal {
   opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transform: translateY(40px);
+  transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), 
+              transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .scroll-reveal.revealed {
@@ -181,7 +270,8 @@ button, a, input, textarea {
 .scroll-reveal-left {
   opacity: 0;
   transform: translateX(-50px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), 
+              transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .scroll-reveal-left.revealed {
@@ -192,7 +282,8 @@ button, a, input, textarea {
 .scroll-reveal-right {
   opacity: 0;
   transform: translateX(50px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), 
+              transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .scroll-reveal-right.revealed {
@@ -203,7 +294,8 @@ button, a, input, textarea {
 .scroll-reveal-scale {
   opacity: 0;
   transform: scale(0.9);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), 
+              transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .scroll-reveal-scale.revealed {
@@ -224,10 +316,66 @@ button, a, input, textarea {
   transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Smooth section transitions */
+/* Smooth section transitions - Slow and elegant */
 section, main > div {
   position: relative;
-  will-change: transform;
+  will-change: transform, opacity;
+  transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 1;
+}
+
+/* Section fade-in effect - Slower */
+section {
+  animation: sectionFadeIn 1.5s ease-out;
+}
+
+@keyframes sectionFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Google-inspired section divider */
+section:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  max-width: 800px;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(66, 133, 244, 0.3) 25%, 
+    rgba(234, 67, 53, 0.3) 50%, 
+    rgba(251, 188, 4, 0.3) 75%, 
+    transparent 100%);
+  opacity: 0.5;
+}
+
+/* Google-inspired section divider */
+section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  max-width: 800px;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(66, 133, 244, 0.3) 25%, 
+    rgba(234, 67, 53, 0.3) 50%, 
+    rgba(251, 188, 4, 0.3) 75%, 
+    transparent 100%);
+  opacity: 0.5;
 }
 
 /* Text shimmer effect */
@@ -351,8 +499,8 @@ a, button, input, textarea, select {
 }
 
 /* Ensure hand cursor for all clickable elements */
-.nav-link, .social-icon-realistic, .skill-tag-google, .group {
-  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36"><defs><linearGradient id="handGolden2" x1="0%%" y1="0%%" x2="100%%" y2="100%%"><stop offset="0%%" style="stop-color:%23ffd966;stop-opacity:1" /><stop offset="40%%" style="stop-color:%23f4b942;stop-opacity:1" /><stop offset="100%%" style="stop-color:%23d4941c;stop-opacity:1" /></linearGradient><linearGradient id="handDark2" x1="0%%" y1="0%%" x2="100%%" y2="100%%"><stop offset="0%%" style="stop-color:%23505566;stop-opacity:1" /><stop offset="100%%" style="stop-color:%232a2d3a;stop-opacity:1" /></linearGradient><filter id="handShadow2"><feDropShadow dx="1" dy="2" stdDeviation="1.5" flood-color="%23000000" flood-opacity="0.4"/></filter></defs><g filter="url(%23handShadow2)"><path d="M14 24 L14 14 C14 12.5 15 11.5 16 11.5 C17 11.5 18 12.5 18 14 L18 11 C18 9.5 19 8.5 20 8.5 C21 8.5 22 9.5 22 11 L22 9.5 C22 8 23 7 24 7 C25 7 26 8 26 9.5 L26 11 C26 9.5 27 8.5 28 8.5 C29 8.5 30 9.5 30 11 L30 20 C30 25 27 29 22 29 L17 29 C13 29 11 27 10 24 L8 19 C7.5 18 8 16.5 9.5 16.5 C10.5 16.5 11.5 17 12 18 L14 22 L14 24 Z" fill="url(%23handDark2)" stroke="%231a1d28" stroke-width="1"/><path d="M14.5 23 L14.5 14 C14.5 12.8 15.3 12 16.2 12 C17 12 17.5 12.8 17.5 14 L17.5 11.5 C17.5 10.3 18.3 9.5 19.2 9.5 C20 9.5 20.5 10.3 20.5 11.5 L20.5 10 C20.5 8.8 21.3 8 22.2 8 C23 8 23.5 8.8 23.5 10 L23.5 11.5 C23.5 10.3 24.3 9.5 25.2 9.5 C26 9.5 26.5 10.3 26.5 11.5 L26.5 19.5 C26.5 24 24 27.5 19.5 27.5 L16 27.5 C12.5 27.5 11 25.8 10.3 23.2 L8.8 19.2 C8.5 18.5 8.8 17.5 9.8 17.5 C10.5 17.5 11.2 17.8 11.6 18.5 L13.5 21.5 L14.5 23 Z" fill="url(%23handGolden2)" stroke="%23d4941c" stroke-width="0.8"/><circle cx="17" cy="13" r="1.2" fill="%23fff9e6" opacity="0.5"/><circle cx="20" cy="11" r="1" fill="%23fff9e6" opacity="0.5"/><circle cx="23" cy="10" r="1" fill="%23fff9e6" opacity="0.5"/></g></svg>') 18 6, pointer;
+.nav-link, .social-icon-realistic, .skill-tag-minimal, .group {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M8 18 L8 10 C8 8.8 8.8 8 9.5 8 C10.2 8 11 8.8 11 10 L11 7.5 C11 6.3 11.8 5.5 12.5 5.5 C13.2 5.5 14 6.3 14 7.5 L14 6 C14 4.8 14.8 4 15.5 4 C16.2 4 17 4.8 17 6 L17 7.5 C17 6.3 17.8 5.5 18.5 5.5 C19.2 5.5 20 6.3 20 7.5 L20 15 C20 19 17.5 22 14 22 L10.5 22 C7.5 22 6 20.5 5.5 18.5 L4 14.5 C3.7 13.8 4 13 4.8 13 C5.4 13 6 13.3 6.3 13.8 L8 16.5 L8 18 Z" fill="%23000000" stroke="%23ffffff" stroke-width="0.5"/></svg>') 12 4, pointer;
 }
 
 /* Enhanced interactive hover effects */
@@ -383,6 +531,121 @@ button:hover {
 @keyframes cardFloat {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-8px); }
+}
+
+/* Performance optimizations */
+img, video {
+  will-change: transform;
+}
+
+/* Scroll to Top Button */
+.scroll-to-top-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4285f4 0%, #34a853 100%);
+  color: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 20px rgba(66, 133, 244, 0.3);
+  z-index: 1000;
+}
+
+.scroll-to-top-btn.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scroll-to-top-btn:hover {
+  background: linear-gradient(135deg, #ea4335 0%, #fbbc04 100%);
+  box-shadow: 0 6px 30px rgba(234, 67, 53, 0.4);
+  transform: translateY(-4px) scale(1.05);
+}
+
+.scroll-to-top-btn:active {
+  transform: translateY(-2px) scale(0.95);
+}
+
+@media (max-width: 768px) {
+  .scroll-to-top-btn {
+    bottom: 20px;
+    right: 20px;
+    width: 48px;
+    height: 48px;
+  }
+}
+
+/* Google Colors Hover Effect - Only for Specific Cards */
+/* Target specific card elements in certifications, projects, experience, education */
+#certifications .group,
+#projects .group, 
+#experience .group,
+#education .group,
+.skill-tag-minimal {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#certifications .group::before,
+#projects .group::before,
+#experience .group::before,
+#education .group::before,
+.skill-tag-minimal::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, 
+    rgba(66, 133, 244, 0.08) 0%, 
+    rgba(234, 67, 53, 0.08) 25%, 
+    rgba(251, 188, 4, 0.08) 50%, 
+    rgba(52, 168, 83, 0.08) 75%,
+    rgba(66, 133, 244, 0.08) 100%);
+  background-size: 200% 200%;
+  opacity: 0;
+  transition: opacity 0.5s ease, background-position 0.8s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+#certifications .group:hover::before,
+#projects .group:hover::before,
+#experience .group:hover::before,
+#education .group:hover::before,
+.skill-tag-minimal:hover::before {
+  opacity: 1;
+  background-position: 100% 100%;
+}
+
+/* Enhanced hover for skill tags with Google ripple effect */
+.skill-tag-minimal {
+  transform-style: preserve-3d;
+}
+
+.skill-tag-minimal:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 4px 16px rgba(66, 133, 244, 0.25),
+              0 8px 24px rgba(234, 67, 53, 0.15);
+}
+
+/* Smooth hover transition for buttons and links only */
+button, .nav-link {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+button:hover, .nav-link:hover {
+  transform: translateY(-2px);
 }
 
 /* Performance optimizations */

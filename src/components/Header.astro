@@ -129,11 +129,6 @@ const hasCertifications = siteConfig.certifications && siteConfig.certifications
       </button>
     </div>
   </nav>
-
-  <!-- Progress Bar -->
-  <div class="progress-bar-container">
-    <div id="progress-bar" class="progress-bar"></div>
-  </div>
 </header>
 
 <!-- Mobile Menu -->
@@ -167,7 +162,6 @@ const hasCertifications = siteConfig.certifications && siteConfig.certifications
   // Header scroll effect
   let lastScroll = 0;
   const header = document.getElementById("header");
-  const progressBar = document.getElementById("progress-bar");
 
   window.addEventListener("scroll", () => {
     const currentScroll = window.pageYOffset;
@@ -187,13 +181,6 @@ const hasCertifications = siteConfig.certifications && siteConfig.certifications
     }
     
     lastScroll = currentScroll;
-
-    // Update progress bar
-    const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    const scrolled = (currentScroll / windowHeight) * 100;
-    if (progressBar) {
-      progressBar.style.width = `${scrolled}%`;
-    }
 
     // Active section highlighting
     const sections = document.querySelectorAll('section, div[id]');
@@ -257,23 +244,6 @@ const hasCertifications = siteConfig.certifications && siteConfig.certifications
 
   #header.header-hidden {
     transform: translateY(-100%);
-  }
-
-  .progress-bar-container {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: rgba(139, 92, 246, 0.1);
-  }
-
-  .progress-bar {
-    height: 100%;
-    width: 0%;
-    background: linear-gradient(90deg, var(--accent-color) 0%, #ec4899 100%);
-    transition: width 0.1s ease;
-    box-shadow: 0 0 10px var(--accent-color);
   }
 
   .logo-container {
