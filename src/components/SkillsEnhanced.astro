@@ -1,6 +1,5 @@
 ---
 import { siteConfig } from "../config";
-import SkillIcon from "./SkillIcon.astro";
 
 const hasSkillCategories = siteConfig.skillCategories && siteConfig.skillCategories.length > 0;
 ---
@@ -22,15 +21,6 @@ const hasSkillCategories = siteConfig.skillCategories && siteConfig.skillCategor
         <p class="mx-auto max-w-3xl text-lg text-gray-600 leading-relaxed">
           Comprehensive overview of my technical skills and expertise as an ML Engineer: LLMs, RAGs, NLP, Computer Vision, MLOps, Cloud & DevOps
         </p>
-        <p class="mt-4 text-sm text-gray-500 font-medium">
-          <span class="inline-flex items-center gap-2">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
-              <path d="M2 17l10 5 10-5"></path>
-            </svg>
-            Click any card to explore different skill categories
-          </span>
-        </p>
       </div>
 
       {/* Stacked Cards Container */}
@@ -39,20 +29,24 @@ const hasSkillCategories = siteConfig.skillCategories && siteConfig.skillCategor
           {siteConfig.skillCategories.map((category, index) => (
             <div 
               data-card-index={index}
-              class="skill-card-stacked group absolute left-0 right-0 cursor-pointer overflow-hidden rounded-3xl bg-white p-10 shadow-2xl border-2 border-gray-200 transition-all duration-700"
+              class="skill-card-stacked absolute left-0 right-0 overflow-hidden rounded-3xl bg-white p-10 shadow-2xl border-2 border-gray-200 transition-all duration-700"
               style={`
                 z-index: ${siteConfig.skillCategories.length - index};
                 transform: translateY(${index * 8}px) scale(${1 - index * 0.02}) rotateX(${index * 1}deg);
                 opacity: ${index === 0 ? 1 : 0};
                 visibility: ${index === 0 ? 'visible' : 'hidden'};
+                pointer-events: ${index === 0 ? 'auto' : 'none'};
               `}
             >
-            {/* Google Colors Gradient Border on Hover */}
-            <div class="absolute inset-0 rounded-3xl opacity-0 transition-opacity duration-500 group-hover:opacity-100" 
-                 style="background: linear-gradient(135deg, #4285f4, #ea4335, #fbbc04, #34a853); padding: 3px;">
-              <div class="h-full w-full rounded-3xl bg-white"></div>
-            </div>
             
+            {/* Click Indicator - Bottom Right */}
+            <div class="absolute bottom-4 right-6 flex items-center gap-2 text-xs font-medium text-gray-400 click-indicator z-20">
+              <span>Click to explore</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 animate-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 18l6-6-6-6"/>
+              </svg>
+            </div>
+
             <div class="relative z-10">
               {/* Card Position Indicator */}
               <div class="absolute -top-6 right-8 flex items-center gap-2 text-xs font-bold text-gray-400">
@@ -110,14 +104,15 @@ const hasSkillCategories = siteConfig.skillCategories && siteConfig.skillCategor
                 <span>{category.category}</span>
               </h3>
 
-              {/* Skills Tags with Icons */}
-              <div class="flex flex-wrap gap-4">
+              {/* Skills Tags - Text Only with Google-like Hover Effect */}
+              <div class="flex flex-wrap gap-3 mb-16">
                 {category.skills.map((skill) => (
-                  <div class="skill-tag-with-icon group/tag flex items-center gap-2.5 rounded-xl border-2 border-gray-300 bg-gradient-to-br from-white to-gray-50 px-4 py-3 shadow-sm transition-all duration-300 hover:border-[var(--accent-color)] hover:shadow-lg hover:-translate-y-1">
-                    <SkillIcon skill={skill} size={24} />
-                    <span class="text-sm font-semibold text-gray-700 group-hover/tag:text-[var(--accent-color)] transition-colors duration-300">
-                      {skill}
-                    </span>
+                  <div class="skill-tag-wrapper rounded-full p-[2px] transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                    <div class="skill-tag rounded-full bg-white px-5 py-2.5">
+                      <span class="text-sm font-semibold text-gray-800">
+                        {skill}
+                      </span>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -188,13 +183,12 @@ const hasSkillCategories = siteConfig.skillCategories && siteConfig.skillCategor
           htmlCard.style.transform = `translateY(${translateY}px) scale(${scale}) rotateX(${rotateX}deg)`;
           htmlCard.style.opacity = opacity.toString();
           htmlCard.style.visibility = visibility;
+          htmlCard.style.pointerEvents = relativeIndex === 0 ? 'auto' : 'none';
           
           // Top card is clickable, others are not
           if (relativeIndex === 0) {
-            htmlCard.style.pointerEvents = 'auto';
             htmlCard.setAttribute('aria-label', `Current card: ${htmlCard.querySelector('h3')?.textContent}. Click to see next category.`);
           } else {
-            htmlCard.style.pointerEvents = 'none';
             htmlCard.removeAttribute('aria-label');
           }
           
@@ -308,19 +302,24 @@ const hasSkillCategories = siteConfig.skillCategories && siteConfig.skillCategor
     min-height: 450px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    pointer-events: auto;
   }
   
-  /* Hover effect only on visible card - changes shadow and border, NO movement */
-  .skill-card-stacked[style*="visibility: visible"]:hover {
-    box-shadow: 0 28px 65px rgba(0, 0, 0, 0.22), 
-                0 18px 35px rgba(66, 133, 244, 0.12);
+  /* Only visible cards should be clickable */
+  .skill-card-stacked[style*="pointer-events: auto"] {
+    pointer-events: auto !important;
+    cursor: pointer;
   }
   
-  /* Ensure hidden cards stay completely invisible */
+  .skill-card-stacked[style*="pointer-events: none"] {
+    pointer-events: none !important;
+    cursor: default;
+  }
+  
+  /* Ensure hidden cards stay completely invisible and non-interactive */
   .skill-card-stacked[style*="visibility: hidden"] {
     pointer-events: none !important;
     opacity: 0 !important;
+    display: none;
   }
   
   /* Active card enhanced glow */
@@ -331,15 +330,35 @@ const hasSkillCategories = siteConfig.skillCategories && siteConfig.skillCategor
                 0 0 45px rgba(66, 133, 244, 0.16);
   }
   
-  /* Skill tags with icons - enhanced design */
-  .skill-tag-with-icon {
-    will-change: transform, box-shadow, border-color;
+  /* Skill tags - Google-like hover effect on border */
+  .skill-tag-wrapper {
+    background: #e5e7eb;
+    transition: all 0.3s ease;
   }
   
-  .skill-tag-with-icon:hover {
-    border-color: var(--accent-color);
-    box-shadow: 0 8px 20px rgba(66, 133, 244, 0.25),
-                0 4px 10px rgba(234, 67, 53, 0.15);
+  .skill-tag-wrapper:hover {
+    background: linear-gradient(135deg, #4285f4, #ea4335, #fbbc04, #34a853);
+    box-shadow: 0 10px 25px rgba(66, 133, 244, 0.3),
+                0 5px 15px rgba(234, 67, 53, 0.2);
+  }
+  
+  .skill-tag {
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  /* Click indicator styling */
+  .click-indicator {
+    animation: fadeInOut 2s ease-in-out infinite;
+  }
+
+  @keyframes fadeInOut {
+    0%, 100% {
+      opacity: 0.5;
+    }
+    50% {
+      opacity: 1;
+    }
   }
   
   /* Navigation dots with smooth animation */
@@ -418,14 +437,14 @@ const hasSkillCategories = siteConfig.skillCategories && siteConfig.skillCategor
       transition-duration: 0.3s;
     }
     
-    .skill-tag-with-icon:hover {
+    .skill-tag-wrapper:hover {
       transition-duration: 0.2s;
     }
   }
   
   /* Smooth GPU-accelerated transforms */
   .skill-card-stacked,
-  .skill-tag-with-icon {
+  .skill-tag-wrapper {
     transform: translateZ(0);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
