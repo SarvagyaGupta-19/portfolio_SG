@@ -1,5 +1,5 @@
 export const siteConfig = {
-  name: "Your Name",
+  name: "Sarvagya Gupta",
   title: "AI/ML Engineer",
   description: "AI/ML Engineer specializing in Large Language Models, RAG Systems, Computer Vision, and Production ML at Scale",
   accentColor: "#4285f4", // Google Blue
@@ -11,20 +11,13 @@ export const siteConfig = {
   },
   aboutMe:
     "AI/ML Engineer specializing in production-grade machine learning systems at scale. Expert in Large Language Models, RAG architectures, and Computer Vision with deep experience in model optimization, distributed training, and MLOps. Passionate about pushing the boundaries of AI through research and building systems that serve millions. Strong foundation in deep learning theory, advanced algorithms, and high-performance ML infrastructure for HFT and big tech environments.",
-  
-  // GitHub Stats
-  githubUsername: "yourusername",
-  githubStats: {
-    totalContributions: 271,
-    currentStreak: 15,
-    longestStreak: 42,
-  },
+
 
   // Categorized Skills
   skillCategories: [
     {
       category: "Programming & CS Fundamentals",
-      skills: ["Python", "C++", "C", "Java", "DSA", "OOP", "System Design", "Algorithms"],
+      skills: ["Python", "C++", "C", "Data Structures","DBMS","Computer Networks","Operating Systems", "OOP", "System Design", "Algorithms"],
     },
     {
       category: "Machine Learning & AI",
@@ -45,7 +38,6 @@ export const siteConfig = {
         "Diffusion Models",
         "Multi-modal AI (CV + NLP)",
         "MLOps",
-        "Federated Learning",
       ],
     },
     {
@@ -75,8 +67,6 @@ export const siteConfig = {
       skills: [
         "PostgreSQL",
         "MySQL",
-        "MongoDB",
-        "Redis",
         "Docker",
         "Kubernetes",
         "AWS",
@@ -165,7 +155,7 @@ export const siteConfig = {
       name: "Postman API Fundamentals Student Expert",
       issuer: "Postman",
       date: "Jan 2024",
-      link: "https://postman-echo.com",
+      link: "https://badges.parchment.com/public/assertions/LWduhBO6Q5aWXrcZmwxcFQ?identity__email=sarvagya653%40gmail.com",
       logo: "/certifications/postman-icon.webp",
     },
   ],
