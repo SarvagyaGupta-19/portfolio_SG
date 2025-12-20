@@ -96,7 +96,7 @@ export const siteConfig = {
   // Certifications - Ordered by AI/ML Engineering Relevance
   certifications: [
     {
-      name: "CS50 - Introduction To AI",
+      name: "CS50's -Introduction to Artificial Intelligence",
       issuer: "Harvard University",
       date: "Jan 2025",
       link: "https://drive.google.com/file/d/1zoNZcfIHjf2vgielyx2-taKhSJOBhfSg/view?usp=sharing",

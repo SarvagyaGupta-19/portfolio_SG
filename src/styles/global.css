@@ -40,18 +40,46 @@ body::before {
   transition: opacity 0.3s ease;
 }
 
-/* Improved Typography */
+/* Improved Typography with Better Alignment */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1.2;
+  text-wrap: balance;
 }
 
 p, span, div {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   letter-spacing: -0.01em;
-  line-height: 1.6;
+  line-height: 1.75;
+  text-wrap: pretty;
+}
+
+/* Better text alignment for readability */
+p {
+  max-width: 75ch;
+  text-align: left;
+}
+
+/* Section spacing consistency */
+section {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+@media (min-width: 640px) {
+  section {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  section {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
 }
 
 /* Selection color */
@@ -257,9 +285,9 @@ button, a, input, textarea {
 /* Scroll reveal animations - Slower and smoother */
 .scroll-reveal {
   opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), 
-              transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(50px);
+  transition: opacity 1.8s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 1.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .scroll-reveal.revealed {
@@ -270,8 +298,8 @@ button, a, input, textarea {
 .scroll-reveal-left {
   opacity: 0;
   transform: translateX(-50px);
-  transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), 
-              transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 1.8s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 1.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .scroll-reveal-left.revealed {
@@ -282,8 +310,8 @@ button, a, input, textarea {
 .scroll-reveal-right {
   opacity: 0;
   transform: translateX(50px);
-  transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), 
-              transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 1.8s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 1.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .scroll-reveal-right.revealed {
@@ -293,9 +321,9 @@ button, a, input, textarea {
 
 .scroll-reveal-scale {
   opacity: 0;
-  transform: scale(0.9);
-  transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), 
-              transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: scale(0.85);
+  transition: opacity 1.8s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 1.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .scroll-reveal-scale.revealed {
@@ -310,6 +338,13 @@ button, a, input, textarea {
 .scroll-reveal:nth-child(4) { transition-delay: 0.3s; }
 .scroll-reveal:nth-child(5) { transition-delay: 0.4s; }
 .scroll-reveal:nth-child(6) { transition-delay: 0.5s; }
+
+.scroll-reveal-delay-1 { transition-delay: 0.1s; }
+.scroll-reveal-delay-2 { transition-delay: 0.2s; }
+.scroll-reveal-delay-3 { transition-delay: 0.3s; }
+.scroll-reveal-delay-4 { transition-delay: 0.4s; }
+.scroll-reveal-delay-5 { transition-delay: 0.5s; }
+.scroll-reveal-delay-6 { transition-delay: 0.6s; }
 
 /* Parallax effect */
 .parallax {
