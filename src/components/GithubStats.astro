@@ -23,7 +23,7 @@ const hasGithubStats = siteConfig.githubStats && siteConfig.githubUsername;
 
     <div class="container relative z-10 mx-auto max-w-7xl px-6">
       {/* Section Header */}
-      <div class="mb-16 text-center">
+      <div class="mb-16 text-center scroll-reveal">
         <h2 class="mb-4 text-4xl font-bold md:text-5xl">
           Days I <span class="bg-gradient-to-r from-[var(--accent-color)] to-[#34a853] bg-clip-text text-transparent">Code</span>
         </h2>
@@ -35,7 +35,7 @@ const hasGithubStats = siteConfig.githubStats && siteConfig.githubUsername;
       {/* GitHub Stats Cards */}
       <div class="mb-12 grid grid-cols-1 gap-6 md:grid-cols-3">
         {/* Total Contributions */}
-        <div class="group relative overflow-hidden rounded-2xl border border-gray-700 bg-[#161b22] p-6 transition-all duration-300 hover:scale-105 hover:border-[var(--accent-color)]">
+        <div class="scroll-reveal scroll-reveal-delay-1 group relative overflow-hidden rounded-2xl border border-gray-700 bg-[#161b22] p-6 transition-all duration-300 hover:scale-105 hover:border-[var(--accent-color)]">
           <div class="absolute right-0 top-0 h-32 w-32 bg-gradient-to-br from-[var(--accent-color)]/20 to-[#ea4335]/20 blur-3xl"></div>
           <div class="relative z-10">
             <div class="mb-2 text-sm font-medium text-gray-400">Total Contributions</div>
@@ -47,7 +47,7 @@ const hasGithubStats = siteConfig.githubStats && siteConfig.githubUsername;
         </div>
 
         {/* Current Streak */}
-        <div class="group relative overflow-hidden rounded-2xl border border-gray-700 bg-[#161b22] p-6 transition-all duration-300 hover:scale-105 hover:border-[#4285f4]">
+        <div class="scroll-reveal scroll-reveal-delay-2 group relative overflow-hidden rounded-2xl border border-gray-700 bg-[#161b22] p-6 transition-all duration-300 hover:scale-105 hover:border-[#4285f4]">
           <div class="absolute right-0 top-0 h-32 w-32 bg-gradient-to-br from-[#fbbc04]/20 to-[#ea4335]/20 blur-3xl"></div>
           <div class="relative z-10">
             <div class="mb-2 text-sm font-medium text-gray-400">Current Streak</div>
@@ -59,7 +59,7 @@ const hasGithubStats = siteConfig.githubStats && siteConfig.githubUsername;
         </div>
 
         {/* Longest Streak */}
-        <div class="group relative overflow-hidden rounded-2xl border border-gray-700 bg-[#161b22] p-6 transition-all duration-300 hover:scale-105 hover:border-pink-500">
+        <div class="scroll-reveal scroll-reveal-delay-3 group relative overflow-hidden rounded-2xl border border-gray-700 bg-[#161b22] p-6 transition-all duration-300 hover:scale-105 hover:border-pink-500">
           <div class="absolute right-0 top-0 h-32 w-32 bg-gradient-to-br from-pink-500/20 to-orange-500/20 blur-3xl"></div>
           <div class="relative z-10">
             <div class="mb-2 text-sm font-medium text-gray-400">Longest Streak</div>
@@ -72,7 +72,7 @@ const hasGithubStats = siteConfig.githubStats && siteConfig.githubUsername;
       </div>
 
       {/* GitHub Contribution Graph Visualization */}
-      <div class="overflow-hidden rounded-2xl border border-gray-700 bg-[#0d1117] p-8">
+      <div class="scroll-reveal overflow-hidden rounded-2xl border border-gray-700 bg-[#0d1117] p-8">
         <div class="mb-6 flex items-center justify-between">
           <h3 class="text-xl font-semibold">Contribution Activity</h3>
           <div class="flex items-center gap-2 text-sm text-gray-400">
