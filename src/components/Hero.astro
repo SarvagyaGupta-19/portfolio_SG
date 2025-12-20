@@ -32,161 +32,96 @@ import { siteConfig } from "../config";
         id="programming-symbols"
         x="0"
         y="0"
-        width="500"
-        height="500"
+        width="800"
+        height="800"
         patternUnits="userSpaceOnUse"
       >
-        <!-- ML Equations and Formulas -->
-        <text
-          x="50"
-          y="50"
-          fill={siteConfig.accentColor}
-          font-family="'Times New Roman', serif"
-          font-size="24"
-          font-style="italic"
-          opacity="0.62"
-          transform="rotate(-12)">∂L/∂θ</text
-        >
-        <text
-          x="180"
-          y="80"
-          fill="#34a853"
-          font-family="'Times New Roman', serif"
-          font-size="22"
-          opacity="0.6"
-          transform="rotate(8)">∇f(x)</text
-        >
-        <text
-          x="320"
-          y="60"
-          fill="#ea4335"
-          font-family="'Times New Roman', serif"
-          font-size="26"
-          font-style="italic"
-          opacity="0.64"
-          transform="rotate(-5)">σ(z)</text
-        >
-        <text
-          x="80"
-          y="150"
-          fill="#fbbc04"
-          font-family="'Times New Roman', serif"
-          font-size="16"
-          opacity="0.58"
-          transform="rotate(15)">E[X]</text
-        >
-        <text
-          x="250"
-          y="140"
-          fill={siteConfig.accentColor}
-          font-family="'Times New Roman', serif"
-          font-size="19"
-          opacity="0.62"
-          transform="rotate(-8)">Σw·x</text
-        >
-        <text
-          x="400"
-          y="130"
-          fill="#34a853"
-          font-family="'Times New Roman', serif"
-          font-size="17"
-          font-style="italic"
-          opacity="0.6"
-          transform="rotate(10)">ReLU</text
-        >
-        <text
-          x="120"
-          y="240"
-          fill="#ea4335"
-          font-family="'Times New Roman', serif"
-          font-size="21"
-          opacity="0.62"
-          transform="rotate(-10)">∫f(x)dx</text
-        >
-        <text
-          x="320"
-          y="220"
-          fill={siteConfig.accentColor}
-          font-family="'Times New Roman', serif"
-          font-size="18"
-          font-style="italic"
-          opacity="0.6"
-          transform="rotate(12)">α·∇θ</text
-        >
-        <text
-          x="450"
-          y="240"
-          fill="#fbbc04"
-          font-family="'Times New Roman', serif"
-          font-size="16"
-          opacity="0.59"
-          transform="rotate(-7)">log(p)</text
-        >
-        <text
-          x="60"
-          y="330"
-          fill="#34a853"
-          font-family="'Times New Roman', serif"
-          font-size="20"
-          opacity="0.61"
-          transform="rotate(9)">∑ᵢ xᵢ</text
-        >
-        <text
-          x="220"
-          y="350"
-          fill="#ea4335"
-          font-family="'Times New Roman', serif"
-          font-size="17"
-          font-style="italic"
-          opacity="0.6"
-          transform="rotate(-14)">softmax</text
-        >
-        <text
-          x="380"
-          y="340"
-          fill={siteConfig.accentColor}
-          font-family="'Times New Roman', serif"
-          font-size="19"
-          opacity="0.63"
-          transform="rotate(6)">W·X+b</text
-        >
-        <text
-          x="140"
-          y="440"
-          fill="#fbbc04"
-          font-family="'Times New Roman', serif"
-          font-size="18"
-          font-style="italic"
-          opacity="0.61"
-          transform="rotate(-11)">||x||₂</text
-        >
-        <text
-          x="300"
-          y="460"
-          fill="#34a853"
-          font-family="'Times New Roman', serif"
-          font-size="16"
-          opacity="0.59"
-          transform="rotate(13)">tanh(x)</text
-        >
-        <text
-          x="440"
-          y="450"
-          fill="#ea4335"
-          font-family="'Times New Roman', serif"
-          font-size="20"
-          opacity="0.62"
-          transform="rotate(-9)">λ·||θ||</text
-        >
-        <!-- Small mathematical symbols scattered -->
-        <circle cx="360" cy="100" r="2" fill={siteConfig.accentColor} opacity="0.55"/>
-        <circle cx="150" cy="190" r="2" fill="#34a853" opacity="0.55"/>
-        <circle cx="280" cy="310" r="2" fill="#ea4335" opacity="0.55"/>
-        <circle cx="90" cy="400" r="2" fill="#fbbc04" opacity="0.55"/>
-        <!-- Graph-like elements -->
-        <path d="M 10 100 Q 40 80 70 100 T 130 100" stroke={siteConfig.accentColor} stroke-width="2" fill="none" opacity="0.5"/>
-        <path d="M 350 300 Q 380 280 410 300 T 470 300" stroke="#34a853" stroke-width="2" fill="none" opacity="0.5"/>
-        <path d="M 200 400 L 230 380 L 260 390 L 290 370" stroke="#ea4335" stroke-width="2" fill="none" opacity="0.5"/>
+        <!-- Row 1: Top equations - well spaced -->
+        <text x="50" y="60" fill={siteConfig.accentColor} font-family="'Times New Roman', serif" font-size="26" font-style="italic" opacity="0.7" transform="rotate(-8)">∂L/∂θ</text>
+        <text x="220" y="65" fill="#34a853" font-family="'Times New Roman', serif" font-size="24" opacity="0.68" transform="rotate(6)">∇f(x)</text>
+        <text x="390" y="55" fill="#ea4335" font-family="'Times New Roman', serif" font-size="28" font-style="italic" opacity="0.72" transform="rotate(-4)">σ(z)</text>
+        <text x="570" y="70" fill="#fbbc04" font-family="'Times New Roman', serif" font-size="22" opacity="0.65" transform="rotate(7)">E[X²]</text>
+        
+        <!-- Graph 1: Neural activation curve -->
+        <path d="M 30 130 Q 80 100 130 130 Q 180 160 230 130" stroke={siteConfig.accentColor} stroke-width="3" fill="none" opacity="0.6"/>
+        <circle cx="130" cy="130" r="4" fill={siteConfig.accentColor} opacity="0.7"/>
+        
+        <!-- Row 2: ML fundamentals -->
+        <text x="280" y="145" fill="#34a853" font-family="'Times New Roman', serif" font-size="25" font-style="italic" opacity="0.7" transform="rotate(9)">Σwᵢxᵢ</text>
+        <text x="470" y="140" fill="#ea4335" font-family="'Times New Roman', serif" font-size="23" opacity="0.68" transform="rotate(-7)">ReLU(x)</text>
+        <text x="650" y="150" fill={siteConfig.accentColor} font-family="'Times New Roman', serif" font-size="21" opacity="0.66" transform="rotate(5)">W·X+b</text>
+        
+        <!-- Graph 2: Step function visualization -->
+        <path d="M 50 230 L 120 230 L 120 200 L 190 200" stroke="#34a853" stroke-width="3" fill="none" opacity="0.6"/>
+        <circle cx="120" cy="215" r="4" fill="#34a853" opacity="0.7"/>
+        
+        <!-- Row 3: Advanced concepts -->
+        <text x="260" y="225" fill="#fbbc04" font-family="'Times New Roman', serif" font-size="27" opacity="0.7" transform="rotate(-6)">∫₀^∞f(x)dx</text>
+        <text x="490" y="235" fill={siteConfig.accentColor} font-family="'Times New Roman', serif" font-size="24" font-style="italic" opacity="0.68" transform="rotate(8)">log(p(y|x))</text>
+        <text x="700" y="220" fill="#34a853" font-family="'Times New Roman', serif" font-size="22" opacity="0.66" transform="rotate(-5)">KL(P||Q)</text>
+        
+        <!-- Graph 3: Loss curve descent -->
+        <path d="M 80 310 Q 130 280 180 300 Q 230 320 280 310 Q 330 300 380 305" stroke="#ea4335" stroke-width="3" fill="none" opacity="0.6" stroke-dasharray="5,3"/>
+        <circle cx="180" cy="300" r="4" fill="#ea4335" opacity="0.7"/>
+        <circle cx="330" cy="300" r="4" fill="#ea4335" opacity="0.7"/>
+        
+        <!-- Row 4: Optimization & activation -->
+        <text x="440" y="325" fill="#ea4335" font-family="'Times New Roman', serif" font-size="26" opacity="0.7" transform="rotate(7)">α·∇θₜ</text>
+        <text x="620" y="315" fill="#fbbc04" font-family="'Times New Roman', serif" font-size="23" font-style="italic" opacity="0.68" transform="rotate(-8)">softmax(z)</text>
+        
+        <!-- Row 5: Deep learning operations -->
+        <text x="60" y="400" fill={siteConfig.accentColor} font-family="'Times New Roman', serif" font-size="25" opacity="0.7" transform="rotate(6)">∑ᵢ₌₁ⁿ xᵢ</text>
+        <text x="270" y="410" fill="#34a853" font-family="'Times New Roman', serif" font-size="24" font-style="italic" opacity="0.68" transform="rotate(-7)">BatchNorm</text>
+        <text x="490" y="395" fill="#ea4335" font-family="'Times New Roman', serif" font-size="22" opacity="0.66" transform="rotate(9)">||x||₂</text>
+        <text x="660" y="405" fill="#fbbc04" font-family="'Times New Roman', serif" font-size="26" opacity="0.7" transform="rotate(-5)">tanh(x)</text>
+        
+        <!-- Graph 4: Sigmoid-like curve -->
+        <path d="M 40 490 C 90 490, 110 470, 140 470 S 190 490, 240 490" stroke="#fbbc04" stroke-width="3" fill="none" opacity="0.6"/>
+        <circle cx="140" cy="470" r="4" fill="#fbbc04" opacity="0.7"/>
+        
+        <!-- Row 6: Modern architectures -->
+        <text x="300" y="485" fill={siteConfig.accentColor} font-family="'Times New Roman', serif" font-size="28" opacity="0.72" transform="rotate(8)">Attention(Q,K,V)</text>
+        <text x="610" y="495" fill="#34a853" font-family="'Times New Roman', serif" font-size="23" font-style="italic" opacity="0.68" transform="rotate(-6)">Transformer</text>
+        
+        <!-- Graph 5: Multi-layer network visualization -->
+        <g opacity="0.6">
+          <circle cx="80" cy="570" r="5" fill={siteConfig.accentColor}/>
+          <circle cx="80" cy="600" r="5" fill={siteConfig.accentColor}/>
+          <circle cx="80" cy="630" r="5" fill={siteConfig.accentColor}/>
+          <circle cx="160" cy="585" r="5" fill="#34a853"/>
+          <circle cx="160" cy="615" r="5" fill="#34a853"/>
+          <line x1="80" y1="570" x2="160" y2="585" stroke="#999" stroke-width="1.5"/>
+          <line x1="80" y1="600" x2="160" y2="585" stroke="#999" stroke-width="1.5"/>
+          <line x1="80" y1="630" x2="160" y2="615" stroke="#999" stroke-width="1.5"/>
+          <line x1="80" y1="600" x2="160" y2="615" stroke="#999" stroke-width="1.5"/>
+        </g>
+        
+        <!-- Row 7: Regularization & loss -->
+        <text x="260" y="575" fill="#ea4335" font-family="'Times New Roman', serif" font-size="25" opacity="0.7" transform="rotate(7)">λ·||θ||₁</text>
+        <text x="450" y="585" fill="#fbbc04" font-family="'Times New Roman', serif" font-size="24" font-style="italic" opacity="0.68" transform="rotate(-8)">Dropout(p)</text>
+        <text x="640" y="570" fill={siteConfig.accentColor} font-family="'Times New Roman', serif" font-size="22" opacity="0.66" transform="rotate(6)">H(X,Y)</text>
+        
+        <!-- Graph 6: Probability distribution -->
+        <path d="M 340 660 L 370 640 L 400 665 L 430 645 L 460 660 L 490 650" stroke="#34a853" stroke-width="3" fill="none" opacity="0.6"/>
+        <circle cx="400" cy="665" r="4" fill="#34a853" opacity="0.7"/>
+        
+        <!-- Row 8: Popular models & techniques -->
+        <text x="50" y="670" fill="#34a853" font-family="'Times New Roman', serif" font-size="26" opacity="0.7" transform="rotate(-7)">∂²L/∂θ²</text>
+        <text x="240" y="680" fill="#ea4335" font-family="'Times New Roman', serif" font-size="24" font-style="italic" opacity="0.68" transform="rotate(9)">ResNet</text>
+        
+        <text x="540" y="675" fill="#fbbc04" font-family="'Times New Roman', serif" font-size="23" opacity="0.66" transform="rotate(-6)">max(0,x)</text>
+        <text x="710" y="685" fill={siteConfig.accentColor} font-family="'Times New Roman', serif" font-size="21" opacity="0.65" transform="rotate(7)">CNN</text>
+        
+        <!-- Row 9: Advanced architectures -->
+        <text x="80" y="750" fill={siteConfig.accentColor} font-family="'Times New Roman', serif" font-size="25" opacity="0.7" transform="rotate(8)">LSTM</text>
+        <text x="230" y="760" fill="#34a853" font-family="'Times New Roman', serif" font-size="27" font-style="italic" opacity="0.72" transform="rotate(-5)">GRU</text>
+        <text x="400" y="755" fill="#ea4335" font-family="'Times New Roman', serif" font-size="24" opacity="0.68" transform="rotate(6)">BERT</text>
+        <text x="570" y="765" fill="#fbbc04" font-family="'Times New Roman', serif" font-size="22" opacity="0.66" transform="rotate(-7)">GPT</text>
+        <text x="700" y="750" fill={siteConfig.accentColor} font-family="'Times New Roman', serif" font-size="23" opacity="0.67" transform="rotate(8)">VAE</text>
+        
+        <!-- Graph 7: GAN-like distribution -->
+        <path d="M 520 140 Q 550 120 580 140 Q 610 160 640 140" stroke="#ea4335" stroke-width="3" fill="none" opacity="0.6"/>
+        <path d="M 530 145 Q 560 165 590 145 Q 620 125 650 145" stroke="#fbbc04" stroke-width="3" fill="none" opacity="0.55" stroke-dasharray="4,2"/>
       </pattern>
     </defs>
     <rect
@@ -200,22 +135,25 @@ import { siteConfig } from "../config";
       height="100%"
       stroke-width={0}></rect>
   </svg>
-  <div class="h-full mx-auto p-8 sm:p-12 md:p-24 flex items-center">
-    <div>
+  <div class="h-full mx-auto px-8 sm:px-12 md:px-24 py-16 sm:py-20 md:py-24 flex items-center">
+    <div class="max-w-5xl">
       <h2
-        class="text-pretty text-xl sm:text-2xl md:text-5xl font-bold tracking-tight text-gray-700 animate-fade-in"
+        class="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-gray-700 animate-fade-in"
+        style="line-height: 1.4; margin-bottom: 1.5rem;"
       >
         Hello! 👋
       </h2>
       <h1
-        class="mt-6 sm:mt-8 md:mt-10 text-pretty text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold tracking-tight text-gray-800 animate-fade-in animation-delay-200"
+        class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-gray-900 animate-fade-in animation-delay-200"
+        style="line-height: 1.1; margin-bottom: 1.5rem;"
       >
         I'm <span style={{ color: siteConfig.accentColor }} id="name-text"
           >{siteConfig.name}</span
         >
       </h1>
       <p
-        class="mt-4 sm:mt-6 md:mt-8 text-pretty text-base sm:text-lg md:text-xl/8 font-medium text-gray-600"
+        class="text-base sm:text-lg md:text-xl font-normal text-gray-600 max-w-3xl"
+        style="line-height: 1.8; margin-top: 2rem;"
       >
         <span id="typing-text" class="typing-animation"></span><span class="cursor-blink">|</span>
       </p>
@@ -284,7 +222,7 @@ import { siteConfig } from "../config";
       </div>
       
       <!-- AI/ML Focus Badge -->
-      <div class="mt-6 sm:mt-8 flex flex-wrap gap-3 animate-fade-in animation-delay-600">
+      <div class="mt-6 sm:mt-8 flex flex-wrap gap-3 scroll-reveal animate-fade-in animation-delay-600">
         <span class="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-50 via-blue-100 to-blue-50 px-4 py-2 text-sm font-medium text-[#4285f4] border border-[#4285f4]/30 transition-all duration-500 hover:shadow-lg hover:shadow-[#4285f4]/20">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
