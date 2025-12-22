@@ -21,8 +21,10 @@ body {
 }
 
 /* Clean hand cursor for interactive elements */
-a, button, [role="button"], input[type="submit"], input[type="button"], .clickable {
-  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M8 18 L8 10 C8 8.8 8.8 8 9.5 8 C10.2 8 11 8.8 11 10 L11 7.5 C11 6.3 11.8 5.5 12.5 5.5 C13.2 5.5 14 6.3 14 7.5 L14 6 C14 4.8 14.8 4 15.5 4 C16.2 4 17 4.8 17 6 L17 7.5 C17 6.3 17.8 5.5 18.5 5.5 C19.2 5.5 20 6.3 20 7.5 L20 15 C20 19 17.5 22 14 22 L10.5 22 C7.5 22 6 20.5 5.5 18.5 L4 14.5 C3.7 13.8 4 13 4.8 13 C5.4 13 6 13.3 6.3 13.8 L8 16.5 L8 18 Z" fill="%23000000" stroke="%23ffffff" stroke-width="0.5"/></svg>') 12 4, pointer;
+a, button, [role="button"], input[type="submit"], input[type="button"], .clickable,
+nav a, .nav-link, .mobile-nav-link, .mobile-menu-button, .menu-close-btn,
+.mobile-resume-button, [data-link], [href], .social-link {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M8 18 L8 10 C8 8.8 8.8 8 9.5 8 C10.2 8 11 8.8 11 10 L11 7.5 C11 6.3 11.8 5.5 12.5 5.5 C13.2 5.5 14 6.3 14 7.5 L14 6 C14 4.8 14.8 4 15.5 4 C16.2 4 17 4.8 17 6 L17 7.5 C17 6.3 17.8 5.5 18.5 5.5 C19.2 5.5 20 6.3 20 7.5 L20 15 C20 19 17.5 22 14 22 L10.5 22 C7.5 22 6 20.5 5.5 18.5 L4 14.5 C3.7 13.8 4 13 4.8 13 C5.4 13 6 13.3 6.3 13.8 L8 16.5 L8 18 Z" fill="%23000000" stroke="%23ffffff" stroke-width="0.5"/></svg>') 12 4, pointer !important;
 }
 
 /* Prevent flash of unstyled content */
@@ -573,27 +575,28 @@ img, video {
   will-change: transform;
 }
 
-/* Scroll to Top Button */
+/* Scroll to Top Button - Minimal Design */
 .scroll-to-top-btn {
   position: fixed;
-  bottom: 30px;
-  right: 30px;
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #4285f4 0%, #34a853 100%);
-  color: white;
-  border: none;
+  bottom: 32px;
+  right: 32px;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #4285f4;
+  border: 1px solid rgba(66, 133, 244, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   opacity: 0;
   visibility: hidden;
-  transform: translateY(20px);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 20px rgba(66, 133, 244, 0.3);
+  transform: translateY(16px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.06);
   z-index: 1000;
+  backdrop-filter: blur(8px);
 }
 
 .scroll-to-top-btn.visible {
@@ -603,21 +606,37 @@ img, video {
 }
 
 .scroll-to-top-btn:hover {
-  background: linear-gradient(135deg, #ea4335 0%, #fbbc04 100%);
-  box-shadow: 0 6px 30px rgba(234, 67, 53, 0.4);
-  transform: translateY(-4px) scale(1.05);
+  background: #4285f4;
+  color: white;
+  border-color: #4285f4;
+  box-shadow: 0 4px 16px rgba(66, 133, 244, 0.25), 0 2px 6px rgba(66, 133, 244, 0.15);
+  transform: translateY(-2px);
+}
+
+.scroll-to-top-btn:hover svg {
+  animation: arrowBounce 0.6s ease-in-out infinite;
 }
 
 .scroll-to-top-btn:active {
-  transform: translateY(-2px) scale(0.95);
+  transform: translateY(0) scale(0.95);
+}
+
+@keyframes arrowBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
 }
 
 @media (max-width: 768px) {
   .scroll-to-top-btn {
-    bottom: 20px;
-    right: 20px;
-    width: 48px;
-    height: 48px;
+    bottom: 24px;
+    right: 24px;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
   }
 }
 
