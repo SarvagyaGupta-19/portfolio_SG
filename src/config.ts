@@ -4,13 +4,15 @@ export const siteConfig = {
   description: "AI/ML Engineer specializing in Large Language Models, RAG Systems, Computer Vision, and Production ML at Scale",
   accentColor: "#4285f4", // Google Blue
   social: {
-    email: "your-email@example.com",
-    linkedin: "https://linkedin.com/in/yourprofile",
-    twitter: "https://x.com/yourprofile",
-    github: "https://github.com/yourusername",
+    email: "sarvagya653@gmail.com",
+    linkedin: "https://www.linkedin.com/in/sarvagyagupta019",
+    twitter: "https://x.com/Sarvagya__Gupta",
+    github: "https://github.com/SarvagyaGupta-19",
+    codolio: "https://codolio.com/profile/_SarvagyaGupta",
   },
+  resumeLink: "https://drive.google.com/file/d/1xTl9D5l9xskQu2tPrIzjKhdiCCBxnXN1/view?usp=sharing",
   aboutMe:
-    "AI/ML Engineer specializing in production-grade machine learning systems at scale. Expert in Large Language Models, RAG architectures, and Computer Vision with deep experience in model optimization, distributed training, and MLOps. Passionate about pushing the boundaries of AI through research and building systems that serve millions. Strong foundation in deep learning theory, advanced algorithms, and high-performance ML infrastructure for HFT and big tech environments.",
+    "I build AI solutions that work in production. My focus is on computer vision and NLP systems—taking ideas from prototype to deployment while keeping performance and reliability front and center. I enjoy working on the full stack of ML development: data preprocessing, model training and optimization, API development, containerization, and deployment. When I'm not coding ML projects, you'll find me solving algorithmic challenges on LeetCode, CodeChef, and Codeforces, or exploring the latest research in deep learning and LLMs. I believe good ML engineering is about understanding both the math behind the models and the engineering needed to make them production-ready.",
 
 
   // Categorized Skills
@@ -212,61 +214,29 @@ export const siteConfig = {
   ],
   experience: [
     {
-      company: "AI Research Lab / Tech Startup",
-      title: "Machine Learning Engineer Intern",
-      dateRange: "Jun 2024 - Present",
+      company: "SkillCraft Technology",
+      title: "ML Engineer Intern",
+      dateRange: "June 2025 - July 2025",
       bullets: [
-        "Architected and deployed LLM-powered recommendation system serving 500K+ users with 40% improvement in engagement metrics",
-        "Optimized PyTorch models using quantization and pruning, reducing inference latency by 60% while maintaining 98% accuracy",
-        "Built end-to-end MLOps pipeline with automated retraining, A/B testing, and monitoring using MLflow and Kubernetes",
-        "Collaborated with research team to implement novel attention mechanisms for transformer architectures",
+        "Built image classification system using ResNet-50 achieving 96% accuracy on 25K+ images; created FastAPI service with Docker that handles 50 requests/second at <150ms latency, added Redis caching to improve response times",
+        "Developed data preprocessing pipeline for 25K+ images with 5-fold cross-validation; created visualizations and reports (ROC-AUC: 0.98) that helped reduce manual review time by 60%",
+        "Implemented comprehensive model evaluation framework with confusion matrices, precision-recall curves, and performance monitoring dashboard using Streamlit",
+        "Collaborated with cross-functional team to deploy ML model to production environment, ensuring scalability and reliability through containerization and load testing",
       ],
-    },
-    {
-      company: "University Research / Open Source",
-      title: "AI/ML Research Assistant",
-      dateRange: "Jan 2023 - May 2024",
-      bullets: [
-        "Published research on federated learning techniques for privacy-preserving ML, accepted at major ML conference",
-        "Developed computer vision models for medical image segmentation achieving 94% Dice coefficient on benchmark datasets",
-        "Created open-source library for efficient training of large language models, garnering 500+ GitHub stars",
-        "Mentored 3 junior researchers on best practices in deep learning and experimental design",
-      ],
-    },
-    {
-      company: "Independent ML Research",
-      title: "Machine Learning Engineer",
-      dateRange: "Aug 2022 - Dec 2022",
-      bullets: [
-        "Developed 5+ production ML systems including RAG pipelines, real-time computer vision models, and NLP transformers",
-        "Optimized inference serving for 100K+ predictions/day using model quantization, batching, and GPU acceleration",
-        "Implemented distributed training pipelines reducing training time by 70% through efficient data parallelism",
-        "Published technical blog posts on LLM optimization reaching 10K+ ML engineers, contributing to open-source community",
-      ],
+      githubLink: "https://github.com/yourusername/skillcraft-ml-project",
     },
   ],
   education: [
     {
-      school: "Your University",
-      degree: "Bachelor of Technology in Computer Science & Engineering",
-      dateRange: "2021 - 2025",
+      school: "Jaypee University of Engineering and Technology",
+      degree: "Bachelor of Technology in Computer Science Engineering",
+      dateRange: "July 2023 - May 2027",
       achievements: [
-        "CGPA: 8.5/10.0 - Focus on Machine Learning, Deep Learning, and AI Systems",
-        "Published 2 research papers in ML/CV at top-tier conferences (NeurIPS, CVPR)",
-        "Winner of multiple national-level hackathons including Smart India Hackathon",
-        "Teaching Assistant for Data Structures & Algorithms, Machine Learning courses",
-        "Core team member of AI/ML Club - organized workshops reaching 500+ students",
-      ],
-    },
-    {
-      school: "Online Learning & Certifications",
-      degree: "Specialized AI/ML Training",
-      dateRange: "2022 - 2024",
-      achievements: [
-        "Completed 10+ professional certifications in ML, Deep Learning, and Cloud (Google, AWS, DeepLearning.AI)",
-        "1000+ hours of hands-on practice on Kaggle, LeetCode (1800+ rating), and Codeforces",
-        "Top 5% in multiple Kaggle competitions, earned Expert tier badge",
-        "Contributed to 15+ open-source AI/ML projects on GitHub",
+        "CGPA: 8.2/10.0 - Micro Specialization in Machine Learning and Artificial Intelligence",
+        "Actively participated in college hackathons, technical workshops, and tech events, building innovative solutions and collaborating with diverse teams",
+        "Completed multiple industry-recognized certifications including Harvard CS50 AI, Google Cloud ML, and specialized courses in LLMs and Generative AI",
+        "Engaged in cricket and athletic activities, maintaining physical fitness and developing teamwork, discipline, and leadership skills",
+        "Balanced academic excellence with practical project development, contributing to open-source projects actively on GitHub",
       ],
     },
   ],
