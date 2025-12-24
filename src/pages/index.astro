@@ -14,38 +14,128 @@ import "../styles/global.css";
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" prefix="og: https://ogp.me/ns#">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="generator" content={Astro.generator} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    
+    <!-- Primary Meta Tags -->
+    <title>{siteConfig.name} - {siteConfig.title} | AI/ML Engineer Portfolio</title>
+    <meta name="title" content={`${siteConfig.name} - ${siteConfig.title}`} />
     <meta name="description" content={siteConfig.description} />
-    <meta name="keywords" content="AI, ML, Machine Learning, Deep Learning, LLM, RAG, Computer Vision, MLOps, PyTorch, TensorFlow" />
+    <meta name="keywords" content="Sarvagya Gupta, AI Engineer, ML Engineer, Machine Learning, Deep Learning, LLMs, Large Language Models, RAG Systems, Computer Vision, NLP, PyTorch, TensorFlow, Python, AI Portfolio, MLOps, Generative AI, Transformers, BERT, GPT" />
     <meta name="author" content={siteConfig.name} />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content={siteConfig.accentColor} />
+    <meta name="color-scheme" content="light" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://sarvagyagupta.com" />
+    
+    <!-- Favicon & Icons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.svg" />
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://sarvagyagupta.com" />
+    <meta property="og:site_name" content={siteConfig.name} />
     <meta property="og:title" content={`${siteConfig.name} - ${siteConfig.title}`} />
     <meta property="og:description" content={siteConfig.description} />
-    <meta property="og:site_name" content={siteConfig.name} />
+    <meta property="og:locale" content="en_US" />
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@Sarvagya__Gupta" />
+    <meta name="twitter:creator" content="@Sarvagya__Gupta" />
     <meta name="twitter:title" content={`${siteConfig.name} - ${siteConfig.title}`} />
     <meta name="twitter:description" content={siteConfig.description} />
     
-    <!-- Preload fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
-      rel="stylesheet"
-    />
+    <!-- Structured Data (JSON-LD) for SEO -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Sarvagya Gupta",
+        "url": "https://sarvagyagupta.com",
+        "jobTitle": "AI/ML Engineer",
+        "description": "AI/ML Engineer specializing in Large Language Models, RAG Systems, Computer Vision, and Production ML at Scale",
+        "email": "sarvagya653@gmail.com",
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "Jaypee University of Engineering and Technology"
+        },
+        "sameAs": [
+          "https://www.linkedin.com/in/sarvagyagupta019",
+          "https://github.com/SarvagyaGupta-19",
+          "https://x.com/Sarvagya__Gupta",
+          "https://codolio.com/profile/_SarvagyaGupta"
+        ],
+        "knowsAbout": [
+          "Artificial Intelligence",
+          "Machine Learning",
+          "Deep Learning",
+          "Large Language Models",
+          "Computer Vision",
+          "Natural Language Processing",
+          "PyTorch",
+          "TensorFlow",
+          "Python",
+          "MLOps"
+        ]
+      }
+    </script>
     
-    <title>{siteConfig.name} - {siteConfig.title}</title>
+    <!-- WebSite Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Sarvagya Gupta Portfolio",
+        "url": "https://sarvagyagupta.com",
+        "description": "AI/ML Engineer Portfolio showcasing projects in LLMs, Computer Vision, and MLOps",
+        "author": {
+          "@type": "Person",
+          "name": "Sarvagya Gupta"
+        }
+      }
+    </script>
+    
+    <!-- Security Headers (CSP will be added via middleware) -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()" />
+    
+    <!-- DNS Prefetch & Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    
+    <!-- Preload Critical Fonts -->
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
+    
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/manifest.json" />
+    
+    <!-- Performance: Resource Hints -->
+    <link rel="preload" as="style" href="/src/styles/global.css" />
   </head>
-  <body class="page-enter">
+  <body class="page-enter" itemscope itemtype="https://schema.org/WebPage">
     <!-- Google-Inspired Animated Background -->
     <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
       <div class="google-bg-orb google-blue"></div>
@@ -61,7 +151,7 @@ import "../styles/global.css";
     <Header />
     
     <!-- Main Content -->
-    <main>
+    <main id="main-content" role="main" aria-label="Main content">
       <Hero />
       <About />
       <SkillsEnhanced />
@@ -83,28 +173,22 @@ import "../styles/global.css";
 
     <!-- Scroll Animation Script -->
     <script>
-      // Parallax scrolling for certain sections
-      let ticking = false;
-      
-      window.addEventListener('scroll', () => {
-        if (!ticking) {
-          window.requestAnimationFrame(() => {
-            const scrolled = window.pageYOffset;
-            const parallaxElements = document.querySelectorAll('.parallax');
-            
-            parallaxElements.forEach((el, index) => {
-              const speed = 0.5 + (index * 0.1);
-              const yPos = -(scrolled * speed);
-              el.style.transform = `translateY(${yPos}px)`;
-            });
-            
-            ticking = false;
-          });
-          
-          ticking = true;
+      // Performance monitoring
+      if ('performance' in window && 'PerformanceObserver' in window) {
+        // Core Web Vitals monitoring
+        const observer = new PerformanceObserver((list) => {
+          for (const entry of list.getEntries()) {
+            console.log(`${entry.name}: ${entry.startTime}ms`);
+          }
+        });
+        
+        try {
+          observer.observe({ entryTypes: ['paint', 'largest-contentful-paint'] });
+        } catch (e) {
+          // Observer not supported
         }
-      });
-
+      }
+      
       // Smooth scroll for anchor links
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -118,14 +202,6 @@ import "../styles/global.css";
           }
         });
       });
-
-      // Click and open sound effects
-      const clickSound = new Audio('data:audio/wav;base64,UklGRhYAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQIAAACA');
-      const openSound = new Audio('data:audio/wav;base64,UklGRiYAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQIAAACA');
-      
-      // Set volume for subtle effects
-      clickSound.volume = 0.3;
-      openSound.volume = 0.2;
 
       // Scroll to top button functionality
       const scrollToTopBtn = document.getElementById('scroll-to-top');
@@ -142,40 +218,6 @@ import "../styles/global.css";
         window.scrollTo({
           top: 0,
           behavior: 'smooth'
-        });
-      });
-
-      // Add click sound to all clickable elements
-      document.addEventListener('DOMContentLoaded', () => {
-        const clickableElements = document.querySelectorAll('a, button, [role=\"button\"], .clickable, .nav-link, .skill-tag-minimal');
-        
-        clickableElements.forEach(element => {
-          // Click sound on mousedown
-          element.addEventListener('mousedown', () => {
-            clickSound.currentTime = 0;
-            clickSound.play().catch(() => {});
-          });
-
-          // Open sound for external links
-          if (element.tagName === 'A' && (element.hasAttribute('target') || element.getAttribute('href')?.startsWith('http'))) {
-            element.addEventListener('click', () => {
-              setTimeout(() => {
-                openSound.currentTime = 0;
-                openSound.play().catch(() => {});
-              }, 100);
-            });
-          }
-        });
-
-        // Special handling for social icons
-        const socialIcons = document.querySelectorAll('.social-icon-realistic');
-        socialIcons.forEach(icon => {
-          icon.addEventListener('click', () => {
-            setTimeout(() => {
-              openSound.currentTime = 0;
-              openSound.play().catch(() => {});
-            }, 100);
-          });
         });
       });
 
