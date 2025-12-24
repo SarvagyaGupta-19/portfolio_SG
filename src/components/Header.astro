@@ -23,17 +23,6 @@ const hasCertifications = siteConfig.certifications && siteConfig.certifications
         {hasExperience && <a href="#experience" class="nav-link" data-section="experience">Experience</a>}
         {hasCertifications && <a href="#certifications" class="nav-link" data-section="certifications">Certifications</a>}
         {hasEducation && <a href="#education" class="nav-link" data-section="education">Education</a>}
-        <a 
-          href="/resume.pdf"
-          target="_blank"
-          class="nav-link resume-link"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-            <polyline points="14 2 14 8 20 8"></polyline>
-          </svg>
-          Resume
-        </a>
       </div>
 
       <!-- Mobile Menu Button -->
@@ -124,7 +113,7 @@ const hasCertifications = siteConfig.certifications && siteConfig.certifications
       </a>}
     </nav>
     <div class="mobile-menu-footer">
-      <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" class="mobile-resume-button">
+      <a href={siteConfig.resumeLink} target="_blank" rel="noopener noreferrer" class="mobile-resume-button">
         <svg class="resume-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
           <polyline points="7 10 12 15 17 10"></polyline>
@@ -705,30 +694,5 @@ const hasCertifications = siteConfig.certifications && siteConfig.certifications
     color: white;
     background: var(--accent-color);
     box-shadow: 0 4px 12px rgba(66, 133, 244, 0.3);
-  }
-
-  .nav-link.resume-link {
-    background: var(--accent-color);
-    color: white;
-    font-weight: 600;
-    box-shadow: 0 1px 3px rgba(66, 133, 244, 0.2);
-  }
-
-  .nav-link.resume-link:hover {
-    background: #3b7de8;
-    box-shadow: 0 4px 12px rgba(66, 133, 244, 0.3);
-    transform: translateY(-1px);
-  }
-
-  .nav-link.resume-link:active {
-    transform: translateY(0);
-  }
-
-  .nav-link.resume-link svg {
-    transition: transform 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
-  }
-
-  .nav-link.resume-link:hover svg {
-    transform: translateY(-1px);
   }
 </style>
