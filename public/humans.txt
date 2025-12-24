@@ -1,0 +1,19 @@
+/* TEAM */
+Developer: Sarvagya Gupta
+Site: https://sarvagyagupta.com
+Email: sarvagya653@gmail.com
+Location: India
+
+/* THANKS */
+Built with: Astro, Tailwind CSS
+Fonts: Inter, IBM Plex Mono from Google Fonts
+Icons: Tabler Icons
+
+/* SITE */
+Last update: 2025/12/24
+Standards: HTML5, CSS3, ES2022
+Components: 11
+Language: TypeScript / JavaScript
+Framework: Astro v5
+Doctype: HTML5
+IDE: VS Code, IntelliJ IDEA

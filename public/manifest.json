@@ -1,0 +1,40 @@
+{
+  "name": "Sarvagya Gupta - AI/ML Engineer Portfolio",
+  "short_name": "Sarvagya Gupta",
+  "description": "AI/ML Engineer specializing in Large Language Models, RAG Systems, Computer Vision, and Production ML at Scale",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#4285f4",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en-US",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["portfolio", "technology", "business"],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "Projects",
+      "url": "/#projects",
+      "description": "View my AI/ML projects"
+    },
+    {
+      "name": "Experience",
+      "url": "/#experience",
+      "description": "View my work experience"
+    },
+    {
+      "name": "Contact",
+      "url": "/#about",
+      "description": "Get in touch"
+    }
+  ]
+}
