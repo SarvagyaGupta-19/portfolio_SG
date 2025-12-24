@@ -1,16 +1,50 @@
 {
   "name": "devportfolio",
   "type": "module",
-  "version": "0.0.1",
+  "version": "2.0.0",
+  "description": "Professional AI/ML Engineer Portfolio - Sarvagya Gupta",
+  "author": "Sarvagya Gupta <sarvagya653@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://sarvagyagupta.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SarvagyaGupta-19/portfolio"
+  },
+  "keywords": [
+    "portfolio",
+    "ai",
+    "ml",
+    "machine-learning",
+    "astro",
+    "tailwind"
+  ],
   "scripts": {
     "dev": "astro dev",
+    "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "check": "astro check",
+    "lint": "prettier --check .",
+    "format": "prettier --write .",
+    "clean": "rm -rf dist .astro node_modules/.astro",
+    "deploy:vercel": "vercel --prod",
+    "deploy:netlify": "netlify deploy --prod"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.11",
     "astro": "^5.12.3",
     "tailwindcss": "^4.1.11"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.4",
+    "prettier": "^3.4.2",
+    "prettier-plugin-astro": "^0.14.1",
+    "terser": "^5.44.1",
+    "typescript": "^5.7.2"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=10.0.0"
   }
 }
