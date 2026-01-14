@@ -13,31 +13,37 @@ import { siteConfig } from "../config";
 import "../styles/global.css";
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" prefix="og: https://ogp.me/ns#">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    
+
     <!-- Primary Meta Tags -->
     <title>{siteConfig.name} - {siteConfig.title} | AI/ML Engineer Portfolio</title>
     <meta name="title" content={`${siteConfig.name} - ${siteConfig.title}`} />
     <meta name="description" content={siteConfig.description} />
-    <meta name="keywords" content="Sarvagya Gupta, AI Engineer, ML Engineer, Machine Learning, Deep Learning, LLMs, Large Language Models, RAG Systems, Computer Vision, NLP, PyTorch, TensorFlow, Python, AI Portfolio, MLOps, Generative AI, Transformers, BERT, GPT" />
+    <meta
+      name="keywords"
+      content="Sarvagya Gupta, AI Engineer, ML Engineer, Machine Learning, Deep Learning, LLMs, Large Language Models, RAG Systems, Computer Vision, NLP, PyTorch, TensorFlow, Python, AI Portfolio, MLOps, Generative AI, Transformers, BERT, GPT"
+    />
     <meta name="author" content={siteConfig.name} />
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
     <meta name="generator" content={Astro.generator} />
     <meta name="theme-color" content={siteConfig.accentColor} />
     <meta name="color-scheme" content="light" />
-    
+
     <!-- Canonical URL -->
     <link rel="canonical" href="https://sarvagyagupta.com" />
-    
+
     <!-- Favicon & Icons -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon.svg" />
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://sarvagyagupta.com" />
@@ -45,14 +51,14 @@ import "../styles/global.css";
     <meta property="og:title" content={`${siteConfig.name} - ${siteConfig.title}`} />
     <meta property="og:description" content={siteConfig.description} />
     <meta property="og:locale" content="en_US" />
-    
+
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@Sarvagya__Gupta" />
     <meta name="twitter:creator" content="@Sarvagya__Gupta" />
     <meta name="twitter:title" content={`${siteConfig.name} - ${siteConfig.title}`} />
     <meta name="twitter:description" content={siteConfig.description} />
-    
+
     <!-- Structured Data (JSON-LD) for SEO -->
     <script type="application/ld+json">
       {
@@ -87,7 +93,7 @@ import "../styles/global.css";
         ]
       }
     </script>
-    
+
     <!-- WebSite Structured Data -->
     <script type="application/ld+json">
       {
@@ -102,38 +108,31 @@ import "../styles/global.css";
         }
       }
     </script>
-    
+
     <!-- Security Headers (CSP will be added via middleware) -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
-    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
+
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
     <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()" />
-    
-    <!-- DNS Prefetch & Preconnect for Performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
-    
-    <!-- Preload Critical Fonts -->
     <link
-      rel="preload"
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
-      as="style"
-      onload="this.onload=null;this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
     />
     <noscript>
       <link
-        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
         rel="stylesheet"
       />
     </noscript>
-    
+
     <!-- Web App Manifest -->
     <link rel="manifest" href="/manifest.json" />
-    
+
     <!-- Performance: Resource Hints -->
-    <link rel="preload" as="style" href="/src/styles/global.css" />
   </head>
   <body class="page-enter" itemscope itemtype="https://schema.org/WebPage">
     <!-- Google-Inspired Animated Background -->
@@ -143,13 +142,13 @@ import "../styles/global.css";
       <div class="google-bg-orb google-yellow"></div>
       <div class="google-bg-orb google-green"></div>
     </div>
-    
+
     <!-- Loading Screen -->
     <Loader />
-    
+
     <!-- Header Navigation -->
     <Header />
-    
+
     <!-- Main Content -->
     <main id="main-content" role="main" aria-label="Main content">
       <Hero />
@@ -160,13 +159,23 @@ import "../styles/global.css";
       <Certifications />
       <Education />
     </main>
-    
+
     <!-- Footer -->
     <Footer />
 
     <!-- Scroll to Top Arrow Button -->
     <button id="scroll-to-top" class="scroll-to-top-btn" aria-label="Scroll to top">
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
         <polyline points="18 15 12 9 6 15"></polyline>
       </svg>
     </button>
@@ -174,78 +183,83 @@ import "../styles/global.css";
     <!-- Scroll Animation Script -->
     <script>
       // Performance monitoring
-      if ('performance' in window && 'PerformanceObserver' in window) {
+      if ("performance" in window && "PerformanceObserver" in window) {
         // Core Web Vitals monitoring
         const observer = new PerformanceObserver((list) => {
           for (const entry of list.getEntries()) {
             console.log(`${entry.name}: ${entry.startTime}ms`);
           }
         });
-        
+
         try {
-          observer.observe({ entryTypes: ['paint', 'largest-contentful-paint'] });
+          observer.observe({ entryTypes: ["paint", "largest-contentful-paint"] });
         } catch (e) {
           // Observer not supported
         }
       }
-      
+
       // Smooth scroll for anchor links
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
           e.preventDefault();
-          const target = document.querySelector(this.getAttribute('href'));
-          if (target) {
-            target.scrollIntoView({
-              behavior: 'smooth',
-              block: 'start'
-            });
+          const href = (this as HTMLAnchorElement).getAttribute("href");
+          if (href) {
+            const target = document.querySelector(href);
+            if (target) {
+              target.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+            }
           }
         });
       });
 
       // Scroll to top button functionality
-      const scrollToTopBtn = document.getElementById('scroll-to-top');
-      
-      window.addEventListener('scroll', () => {
+      const scrollToTopBtn = document.getElementById("scroll-to-top");
+
+      window.addEventListener("scroll", () => {
         if (window.pageYOffset > 500) {
-          scrollToTopBtn?.classList.add('visible');
+          scrollToTopBtn?.classList.add("visible");
         } else {
-          scrollToTopBtn?.classList.remove('visible');
+          scrollToTopBtn?.classList.remove("visible");
         }
       });
 
-      scrollToTopBtn?.addEventListener('click', () => {
+      scrollToTopBtn?.addEventListener("click", () => {
         window.scrollTo({
           top: 0,
-          behavior: 'smooth'
+          behavior: "smooth",
         });
       });
 
       // Scroll reveal animation
       const observerOptions = {
         root: null,
-        rootMargin: '0px',
-        threshold: 0.05
+        rootMargin: "0px",
+        threshold: 0.05,
       };
 
       const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('revealed');
+            entry.target.classList.add("revealed");
           }
         });
       }, observerOptions);
 
       // Observe all elements with scroll-reveal classes
-      const revealElements = document.querySelectorAll('.scroll-reveal, .scroll-reveal-left, .scroll-reveal-right, .scroll-reveal-scale');
-      revealElements.forEach(el => observer.observe(el));
+      const revealElements = document.querySelectorAll(
+        ".scroll-reveal, .scroll-reveal-left, .scroll-reveal-right, .scroll-reveal-scale"
+      );
+      revealElements.forEach((el) => observer.observe(el));
 
       // Trigger initial check for elements already in viewport
       setTimeout(() => {
-        revealElements.forEach(el => {
+        revealElements.forEach((el) => {
           const rect = el.getBoundingClientRect();
           if (rect.top < window.innerHeight && rect.bottom > 0) {
-            el.classList.add('revealed');
+            el.classList.add("revealed");
           }
         });
       }, 100);

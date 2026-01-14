@@ -16,13 +16,39 @@ const hasCertifications = siteConfig.certifications && siteConfig.certifications
   <nav class="max-w-7xl mx-auto px-6 py-4">
     <div class="flex items-center justify-center">
       <!-- Desktop Navigation - Centered -->
-      <div class="hidden lg:flex items-center bg-white/80 backdrop-blur-xl rounded-full px-2 py-2 shadow-lg border border-gray-200/50">
+      <div
+        class="hidden lg:flex items-center bg-white/80 backdrop-blur-xl rounded-full px-2 py-2 shadow-lg border border-gray-200/50"
+      >
         <a href="#about" class="nav-link" data-section="about">About</a>
         <a href="#skills" class="nav-link" data-section="skills">Skills</a>
-        {hasProjects && <a href="#projects" class="nav-link" data-section="projects">Projects</a>}
-        {hasExperience && <a href="#experience" class="nav-link" data-section="experience">Experience</a>}
-        {hasCertifications && <a href="#certifications" class="nav-link" data-section="certifications">Certifications</a>}
-        {hasEducation && <a href="#education" class="nav-link" data-section="education">Education</a>}
+        {
+          hasProjects && (
+            <a href="#projects" class="nav-link" data-section="projects">
+              Projects
+            </a>
+          )
+        }
+        {
+          hasExperience && (
+            <a href="#experience" class="nav-link" data-section="experience">
+              Experience
+            </a>
+          )
+        }
+        {
+          hasCertifications && (
+            <a href="#certifications" class="nav-link" data-section="certifications">
+              Certifications
+            </a>
+          )
+        }
+        {
+          hasEducation && (
+            <a href="#education" class="nav-link" data-section="education">
+              Education
+            </a>
+          )
+        }
       </div>
 
       <!-- Mobile Menu Button -->
@@ -43,7 +69,17 @@ const hasCertifications = siteConfig.certifications && siteConfig.certifications
       <div class="menu-header-top">
         <span class="menu-title">Menu</span>
         <button id="mobile-menu-close" class="menu-close-btn" aria-label="Close menu">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
             <line x1="18" y1="6" x2="6" y2="18"></line>
             <line x1="6" y1="6" x2="18" y2="18"></line>
           </svg>
@@ -56,7 +92,15 @@ const hasCertifications = siteConfig.certifications && siteConfig.certifications
           <span class="link-number">01</span>
           <span class="link-text">About</span>
         </div>
-        <svg class="link-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <svg
+          class="link-icon"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
           <line x1="5" y1="12" x2="19" y2="12"></line>
           <polyline points="12 5 19 12 12 19"></polyline>
         </svg>
@@ -66,55 +110,127 @@ const hasCertifications = siteConfig.certifications && siteConfig.certifications
           <span class="link-number">02</span>
           <span class="link-text">Skills</span>
         </div>
-        <svg class="link-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <svg
+          class="link-icon"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
           <line x1="5" y1="12" x2="19" y2="12"></line>
           <polyline points="12 5 19 12 12 19"></polyline>
         </svg>
       </a>
-      {hasProjects && <a href="#projects" class="mobile-nav-link" data-section="projects">
-        <div class="link-content">
-          <span class="link-number">03</span>
-          <span class="link-text">Projects</span>
-        </div>
-        <svg class="link-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <line x1="5" y1="12" x2="19" y2="12"></line>
-          <polyline points="12 5 19 12 12 19"></polyline>
-        </svg>
-      </a>}
-      {hasExperience && <a href="#experience" class="mobile-nav-link" data-section="experience">
-        <div class="link-content">
-          <span class="link-number">04</span>
-          <span class="link-text">Experience</span>
-        </div>
-        <svg class="link-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <line x1="5" y1="12" x2="19" y2="12"></line>
-          <polyline points="12 5 19 12 12 19"></polyline>
-        </svg>
-      </a>}
-      {hasCertifications && <a href="#certifications" class="mobile-nav-link" data-section="certifications">
-        <div class="link-content">
-          <span class="link-number">05</span>
-          <span class="link-text">Certifications</span>
-        </div>
-        <svg class="link-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <line x1="5" y1="12" x2="19" y2="12"></line>
-          <polyline points="12 5 19 12 12 19"></polyline>
-        </svg>
-      </a>}
-      {hasEducation && <a href="#education" class="mobile-nav-link" data-section="education">
-        <div class="link-content">
-          <span class="link-number">06</span>
-          <span class="link-text">Education</span>
-        </div>
-        <svg class="link-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <line x1="5" y1="12" x2="19" y2="12"></line>
-          <polyline points="12 5 19 12 12 19"></polyline>
-        </svg>
-      </a>}
+      {
+        hasProjects && (
+          <a href="#projects" class="mobile-nav-link" data-section="projects">
+            <div class="link-content">
+              <span class="link-number">03</span>
+              <span class="link-text">Projects</span>
+            </div>
+            <svg
+              class="link-icon"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </a>
+        )
+      }
+      {
+        hasExperience && (
+          <a href="#experience" class="mobile-nav-link" data-section="experience">
+            <div class="link-content">
+              <span class="link-number">04</span>
+              <span class="link-text">Experience</span>
+            </div>
+            <svg
+              class="link-icon"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </a>
+        )
+      }
+      {
+        hasCertifications && (
+          <a href="#certifications" class="mobile-nav-link" data-section="certifications">
+            <div class="link-content">
+              <span class="link-number">05</span>
+              <span class="link-text">Certifications</span>
+            </div>
+            <svg
+              class="link-icon"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </a>
+        )
+      }
+      {
+        hasEducation && (
+          <a href="#education" class="mobile-nav-link" data-section="education">
+            <div class="link-content">
+              <span class="link-number">06</span>
+              <span class="link-text">Education</span>
+            </div>
+            <svg
+              class="link-icon"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </a>
+        )
+      }
     </nav>
     <div class="mobile-menu-footer">
-      <a href={siteConfig.resumeLink} target="_blank" rel="noopener noreferrer" class="mobile-resume-button">
-        <svg class="resume-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <a
+        href={siteConfig.resumeLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mobile-resume-button"
+      >
+        <svg
+          class="resume-icon"
+          xmlns="http://www.w3.org/2000/svg"
+          width="22"
+          height="22"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
           <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
           <polyline points="7 10 12 15 17 10"></polyline>
           <line x1="12" y1="15" x2="12" y2="3"></line>
@@ -126,8 +242,9 @@ const hasCertifications = siteConfig.certifications && siteConfig.certifications
 </div>
 
 <script>
-  // Header scroll effect
+  // Header scroll effect with performance optimization
   let lastScroll = 0;
+  let ticking = false;
   const header = document.getElementById("header");
   const mobileMenuBtn = document.getElementById("mobile-menu-btn");
   const mobileMenu = document.getElementById("mobile-menu");
@@ -136,7 +253,7 @@ const hasCertifications = siteConfig.certifications && siteConfig.certifications
   // Mobile menu toggle
   mobileMenuBtn?.addEventListener("click", () => {
     const isOpen = !mobileMenu?.classList.contains("hidden");
-    
+
     if (isOpen) {
       mobileMenu?.classList.add("closing");
       setTimeout(() => {
@@ -176,7 +293,7 @@ const hasCertifications = siteConfig.certifications && siteConfig.certifications
   });
 
   // Close mobile menu when clicking a navigation link
-  document.querySelectorAll(".mobile-nav-link").forEach(link => {
+  document.querySelectorAll(".mobile-nav-link").forEach((link) => {
     link.addEventListener("click", () => {
       mobileMenu?.classList.add("closing");
       setTimeout(() => {
@@ -201,36 +318,46 @@ const hasCertifications = siteConfig.certifications && siteConfig.certifications
     }, 100);
   });
 
-  window.addEventListener("scroll", () => {
+  function updateHeader() {
     const currentScroll = window.pageYOffset;
-    
+
     // Add background when scrolled
     if (currentScroll > 20) {
       header?.classList.add("header-scrolled");
     } else {
       header?.classList.remove("header-scrolled");
     }
-    
+
     lastScroll = currentScroll;
 
     // Active section highlighting
-    const sections = document.querySelectorAll('section, div[id]');
-    const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
-    
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop - 100;
-      const sectionHeight = section.clientHeight;
-      const sectionId = section.getAttribute('id');
-      
+    const sections = document.querySelectorAll("section, div[id]");
+    const navLinks = document.querySelectorAll(".nav-link, .mobile-nav-link");
+
+    sections.forEach((section) => {
+      const htmlSection = section as HTMLElement;
+      const sectionTop = htmlSection.offsetTop - 100;
+      const sectionHeight = htmlSection.clientHeight;
+      const sectionId = htmlSection.getAttribute("id");
+
       if (currentScroll >= sectionTop && currentScroll < sectionTop + sectionHeight) {
-        navLinks.forEach(link => {
-          link.classList.remove('active');
-          if (link.getAttribute('data-section') === sectionId) {
-            link.classList.add('active');
+        navLinks.forEach((link) => {
+          link.classList.remove("active");
+          if (link.getAttribute("data-section") === sectionId) {
+            link.classList.add("active");
           }
         });
       }
     });
+
+    ticking = false;
+  }
+
+  window.addEventListener("scroll", () => {
+    if (!ticking) {
+      window.requestAnimationFrame(updateHeader);
+      ticking = true;
+    }
   });
 </script>
 
@@ -272,7 +399,7 @@ const hasCertifications = siteConfig.certifications && siteConfig.certifications
   }
 
   .mobile-menu-button::before {
-    content: '';
+    content: "";
     position: absolute;
     inset: 0;
     background: linear-gradient(135deg, var(--accent-color), #3b7de8);
@@ -410,7 +537,7 @@ const hasCertifications = siteConfig.certifications && siteConfig.certifications
     font-weight: 700;
     letter-spacing: -0.02em;
     color: #1a1a1a;
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
   }
 
   .menu-close-btn {
@@ -434,7 +561,7 @@ const hasCertifications = siteConfig.certifications && siteConfig.certifications
   }
 
   .menu-close-btn::before {
-    content: '';
+    content: "";
     position: absolute;
     inset: 0;
     background: linear-gradient(135deg, #ef4444, #dc2626);
@@ -512,7 +639,7 @@ const hasCertifications = siteConfig.certifications && siteConfig.certifications
   }
 
   .mobile-nav-link::before {
-    content: '';
+    content: "";
     position: absolute;
     left: 0;
     top: 0;
@@ -525,12 +652,10 @@ const hasCertifications = siteConfig.certifications && siteConfig.certifications
   }
 
   .mobile-nav-link::after {
-    content: '';
+    content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(90deg, 
-      rgba(66, 133, 244, 0.06) 0%, 
-      rgba(66, 133, 244, 0.02) 100%);
+    background: linear-gradient(90deg, rgba(66, 133, 244, 0.06) 0%, rgba(66, 133, 244, 0.02) 100%);
     opacity: 0;
     transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
@@ -557,7 +682,7 @@ const hasCertifications = siteConfig.certifications && siteConfig.certifications
     font-size: 0.875rem;
     font-weight: 600;
     color: var(--accent-color);
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: "IBM Plex Mono", monospace;
     opacity: 0.6;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
@@ -662,7 +787,8 @@ const hasCertifications = siteConfig.certifications && siteConfig.certifications
   }
 
   @keyframes downloadPulse {
-    0%, 100% {
+    0%,
+    100% {
       transform: translateY(0);
     }
     50% {
