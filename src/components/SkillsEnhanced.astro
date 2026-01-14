@@ -4,296 +4,435 @@ import { siteConfig } from "../config";
 const hasSkillCategories = siteConfig.skillCategories && siteConfig.skillCategories.length > 0;
 ---
 
-{hasSkillCategories && (
-  <div id="skills" class="relative w-full overflow-hidden bg-white py-24">
-    {/* Subtle Background Pattern */}
-    <div class="absolute inset-0 opacity-5">
-      <div class="absolute left-1/4 top-1/4 h-96 w-96 rounded-full bg-[var(--accent-color)] blur-3xl"></div>
-      <div class="absolute bottom-1/4 right-1/4 h-96 w-96 rounded-full bg-[#fbbc04] blur-3xl"></div>
-    </div>
-
-    <div class="container relative z-10 mx-auto max-w-7xl px-6">
-      {/* Section Header */}
-      <div class="mb-16 text-center scroll-reveal">
-        <h2 class="mb-6 text-4xl font-bold text-gray-900 md:text-5xl" style="line-height: 1.2;">
-          Skills & <span class="text-[var(--accent-color)]">Expertise</span>
-        </h2>
-        <p class="mx-auto max-w-3xl text-lg text-gray-600" style="line-height: 1.8;">
-          Comprehensive overview of my technical skills and expertise: LLMs, RAGs, NLP, Computer Vision, MLOps, Cloud & DevOps
-        </p>
+{
+  hasSkillCategories && (
+    <section id="skills" class="relative w-full overflow-hidden bg-white">
+      {/* Subtle Background Pattern */}
+      <div class="absolute inset-0 opacity-5 pointer-events-none">
+        <div class="absolute left-1/4 top-1/4 h-96 w-96 rounded-full bg-[var(--accent-color)] blur-3xl" />
+        <div class="absolute bottom-1/4 right-1/4 h-96 w-96 rounded-full bg-[#fbbc04] blur-3xl" />
       </div>
 
-      {/* Stacked Cards Container */}
-      <div class="relative mx-auto scroll-reveal-scale" style="max-width: 900px; min-height: 550px;">
-        <div id="stackedCardsContainer" class="relative" style="perspective: 1500px;">
+      <div class="container relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div class="mb-12 md:mb-16 text-center scroll-reveal">
+          <h2 class="mb-4 md:mb-6 text-3xl md:text-5xl font-bold text-gray-900 leading-tight">
+            Skills & <span class="text-[var(--accent-color)]">Expertise</span>
+          </h2>
+          <p class="mx-auto max-w-3xl text-base md:text-lg text-gray-600 leading-relaxed">
+            Comprehensive overview of my technical skills and expertise: LLMs, RAGs, NLP, Computer
+            Vision, MLOps, Cloud & DevOps
+          </p>
+        </div>
+
+        {/* Mobile Layout: Vertical Grid (Visible on < 1024px) */}
+        <div class="lg:hidden grid grid-cols-1 gap-6">
           {siteConfig.skillCategories.map((category, index) => (
-            <div 
-              data-card-index={index}
-              class="skill-card-stacked absolute left-0 right-0 overflow-hidden rounded-3xl bg-white p-10 shadow-2xl border-2 border-gray-200 transition-all duration-700"
-              style={`
-                z-index: ${siteConfig.skillCategories.length - index};
-                transform: translateY(${index * 8}px) scale(${1 - index * 0.02}) rotateX(${index * 1}deg);
-                opacity: ${index === 0 ? 1 : 0};
-                visibility: ${index === 0 ? 'visible' : 'hidden'};
-                pointer-events: ${index === 0 ? 'auto' : 'none'};
-              `}
-            >
-            
-            {/* Click Indicator - Bottom Right */}
-            <div class="absolute bottom-4 right-6 flex items-center gap-2 text-xs font-medium text-gray-400 click-indicator z-20">
-              <span>Click to explore</span>
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 animate-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M9 18l6-6-6-6"/>
-              </svg>
-            </div>
-
-            <div class="relative z-10">
-              {/* Card Position Indicator */}
-              <div class="absolute -top-6 right-8 flex items-center gap-2 text-xs font-bold text-gray-400">
-                <span>{index + 1}</span>
-                <span>/</span>
-                <span>{siteConfig.skillCategories.length}</span>
-              </div>
-
-              {/* Category Title */}
-              <h3 class="mb-8 flex items-center gap-4 text-3xl font-bold text-gray-900">
-                <span class="flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-[var(--accent-color)]/20 to-[var(--accent-color)]/5 text-[var(--accent-color)] shadow-lg">
+            <div class="scroll-reveal rounded-2xl bg-white p-6 shadow-md border border-gray-100">
+              <h3 class="mb-6 flex items-center gap-4 text-xl font-bold text-gray-900">
+                <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-[var(--accent-color)]/20 to-[var(--accent-color)]/5 text-[var(--accent-color)]">
+                  {/* Icons based on index - simplified for mobile */}
                   {index === 0 && (
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <polyline points="16 18 22 12 16 6"></polyline>
-                      <polyline points="8 6 2 12 8 18"></polyline>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-6 w-6"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <polyline points="16 18 22 12 16 6" />
+                      <polyline points="8 6 2 12 8 18" />
                     </svg>
                   )}
                   {index === 1 && (
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-                      <polyline points="7.5 4.21 12 6.81 16.5 4.21"></polyline>
-                      <polyline points="7.5 19.79 7.5 14.6 3 12"></polyline>
-                      <polyline points="21 12 16.5 14.6 16.5 19.79"></polyline>
-                      <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-                      <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-6 w-6"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z" />
+                      <path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" />
+                      <path d="M12 12v6" />
+                      <path d="M12 18h6" />
+                      <path d="M12 18H6" />
                     </svg>
                   )}
                   {index === 2 && (
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
-                      <path d="M2 17l10 5 10-5"></path>
-                      <path d="M2 12l10 5 10-5"></path>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-6 w-6"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <polygon points="12 2 2 7 12 12 22 7 12 2" />
+                      <polyline points="2 17 12 22 22 17" />
+                      <polyline points="2 12 12 17 22 12" />
                     </svg>
                   )}
                   {index === 3 && (
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <circle cx="12" cy="12" r="10"></circle>
-                      <line x1="2" y1="12" x2="22" y2="12"></line>
-                      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-6 w-6"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <ellipse cx="12" cy="5" rx="9" ry="3" />
+                      <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+                      <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
                     </svg>
                   )}
                   {index === 4 && (
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
-                      <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
-                      <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
-                    </svg>
-                  )}
-                  {index === 5 && (
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-6 w-6"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
                     </svg>
                   )}
                 </span>
-                <span>{category.category}</span>
+                {category.category}
               </h3>
-
-              {/* Skills Tags - Text Only with Google-like Hover Effect */}
-              <div class="flex flex-wrap gap-3 mb-16">
+              <div class="flex flex-wrap gap-2">
                 {category.skills.map((skill) => (
-                  <div class="skill-tag-wrapper rounded-full p-[2px] transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-                    <div class="skill-tag rounded-full bg-white px-5 py-2.5">
-                      <span class="text-sm font-semibold text-gray-800">
-                        {skill}
-                      </span>
-                    </div>
-                  </div>
+                  <span class="rounded-lg bg-gray-50 px-3 py-1.5 text-sm font-medium text-gray-700 border border-gray-100">
+                    {skill}
+                  </span>
                 ))}
               </div>
             </div>
-          </div>
-        ))}
-        </div>
-
-        {/* Navigation Dots */}
-        <div class="mt-12 flex justify-center gap-3 scroll-reveal">
-          {siteConfig.skillCategories.map((_, index) => (
-            <button 
-              data-dot-index={index}
-              class="skill-nav-dot h-3 w-3 rounded-full bg-gray-300 transition-all duration-300 hover:scale-125"
-              style={index === 0 ? "background: linear-gradient(135deg, #4285f4, #ea4335); width: 2rem;" : ""}
-              aria-label={`Go to skill category ${index + 1}`}
-            ></button>
           ))}
         </div>
-      </div>
 
-      {/* Additional Info */}
-      <div class="mt-12 flex justify-center scroll-reveal">
-        <p class="text-lg text-gray-600 text-center max-w-4xl">
-          <span class="font-semibold text-[var(--accent-color)]">Currently Learning:</span> Federated Learning, Advanced LLM Architectures, Rust for ML Systems
-        </p>
+        {/* Desktop Layout: 3D Stacked Cards (Visible on >= 1024px) */}
+        <div
+          class="hidden lg:block relative mx-auto scroll-reveal-scale"
+          style="max-width: 900px; min-height: 550px;"
+        >
+          <div id="stackedCardsContainer" class="relative" style="perspective: 1500px;">
+            {siteConfig.skillCategories.map((category, index) => (
+              <div
+                data-card-index={index}
+                class="skill-card-stacked absolute left-0 right-0 overflow-hidden rounded-3xl bg-white p-10 shadow-2xl border-2 border-gray-200 transition-all duration-700"
+                style={`
+                z-index: ${siteConfig.skillCategories.length - index};
+                transform: translateY(${index * 8}px) scale(${1 - index * 0.02}) rotateX(${index * 1}deg);
+                opacity: ${index === 0 ? 1 : 0};
+                visibility: ${index === 0 ? "visible" : "hidden"};
+                pointer-events: ${index === 0 ? "auto" : "none"};
+              `}
+              >
+                {/* Click Indicator - Bottom Right */}
+                <div class="absolute bottom-4 right-6 flex items-center gap-2 text-xs font-medium text-gray-400 click-indicator z-20">
+                  <span>Click to explore</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-4 w-4 animate-pulse"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M9 18l6-6-6-6" />
+                  </svg>
+                </div>
+
+                <div class="relative z-10">
+                  {/* Card Position Indicator */}
+                  <div class="absolute -top-6 right-8 flex items-center gap-2 text-xs font-bold text-gray-400">
+                    <span>{index + 1}</span>
+                    <span>/</span>
+                    <span>{siteConfig.skillCategories.length}</span>
+                  </div>
+
+                  {/* Category Title */}
+                  <h3 class="mb-8 flex items-center gap-4 text-3xl font-bold text-gray-900">
+                    <span class="flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-[var(--accent-color)]/20 to-[var(--accent-color)]/5 text-[var(--accent-color)] shadow-lg">
+                      {/* Icons for each category */}
+                      {index === 0 && (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="h-7 w-7"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <polyline points="16 18 22 12 16 6" />
+                          <polyline points="8 6 2 12 8 18" />
+                        </svg>
+                      )}
+                      {index === 1 && (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="h-7 w-7"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z" />
+                          <path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" />
+                          <path d="M12 12v6" />
+                          <path d="M12 18h6" />
+                          <path d="M12 18H6" />
+                        </svg>
+                      )}
+                      {index === 2 && (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="h-7 w-7"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <polygon points="12 2 2 7 12 12 22 7 12 2" />
+                          <polyline points="2 17 12 22 22 17" />
+                          <polyline points="2 12 12 17 22 12" />
+                        </svg>
+                      )}
+                      {index === 3 && (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="h-7 w-7"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <ellipse cx="12" cy="5" rx="9" ry="3" />
+                          <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+                          <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+                        </svg>
+                      )}
+                      {index === 4 && (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="h-7 w-7"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+                        </svg>
+                      )}
+                    </span>
+                    <span>{category.category}</span>
+                  </h3>
+
+                  {/* Skills Tags - Text Only with Google-like Hover Effect */}
+                  <div class="flex flex-wrap gap-3 mb-8">
+                    {category.skills.map((skill) => (
+                      <div class="skill-tag-wrapper rounded-full p-[2px] transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                        <div class="skill-tag rounded-full bg-white px-5 py-2.5 bg-gray-50 border border-indigo-100/50">
+                          <span class="text-sm font-semibold text-gray-800">{skill}</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Navigation Dots - Increased touch target size */}
+          <div class="mt-8 flex justify-center gap-3 scroll-reveal pb-12">
+            {siteConfig.skillCategories.map((_, index) => (
+              <button
+                data-dot-index={index}
+                class="skill-nav-dot h-3 w-3 p-2 box-content rounded-full bg-gray-300 bg-clip-content transition-all duration-300 hover:scale-125 focus:outline-none focus:ring-2 focus:ring-[var(--accent-color)]"
+                style={
+                  index === 0
+                    ? "background: linear-gradient(135deg, var(--accent-light), var(--accent-color)); width: 2rem;"
+                    : ""
+                }
+                aria-label={`Go to skill category ${index + 1}`}
+              />
+            ))}
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-)}
+    </section>
+  )
+}
+
+)
+}
 
 <script>
   // Stacked Cards Interaction Logic - Click Only, No Hover Movement
-  document.addEventListener('DOMContentLoaded', () => {
-    const container = document.getElementById('stackedCardsContainer');
-    const cards = document.querySelectorAll('.skill-card-stacked');
-    const dots = document.querySelectorAll('.skill-nav-dot');
-    
+  document.addEventListener("DOMContentLoaded", () => {
+    const container = document.getElementById("stackedCardsContainer");
+    const cards = document.querySelectorAll(".skill-card-stacked");
+    const dots = document.querySelectorAll(".skill-nav-dot");
+
     if (!container || cards.length === 0) return;
-    
+
     let currentIndex = 0;
     let isAnimating = false;
-    
+
     // Function to update card positions and styles smoothly
     function updateCards(newIndex: number) {
       if (isAnimating || newIndex === currentIndex) return;
       isAnimating = true;
-      
+
       currentIndex = newIndex;
-      
+
       // Use requestAnimationFrame for smooth animations
       requestAnimationFrame(() => {
         cards.forEach((card, index) => {
           const htmlCard = card as HTMLElement;
           const relativeIndex = (index - currentIndex + cards.length) % cards.length;
-          
+
           // Calculate position in stack with smooth easing - only show top card
           const zIndex = cards.length - relativeIndex;
           const translateY = relativeIndex * 8;
           const scale = Math.max(0.95, 1 - relativeIndex * 0.02);
           const rotateX = relativeIndex * 1;
           const opacity = relativeIndex === 0 ? 1 : 0;
-          const visibility = relativeIndex === 0 ? 'visible' : 'hidden';
-          
+          const visibility = relativeIndex === 0 ? "visible" : "hidden";
+
           // Apply transformations with will-change for performance
-          htmlCard.style.willChange = 'transform, opacity, z-index, visibility';
+          htmlCard.style.willChange = "transform, opacity, z-index, visibility";
           htmlCard.style.zIndex = zIndex.toString();
           htmlCard.style.transform = `translateY(${translateY}px) scale(${scale}) rotateX(${rotateX}deg)`;
           htmlCard.style.opacity = opacity.toString();
           htmlCard.style.visibility = visibility;
-          htmlCard.style.pointerEvents = relativeIndex === 0 ? 'auto' : 'none';
-          
+          htmlCard.style.pointerEvents = relativeIndex === 0 ? "auto" : "none";
+
           // Top card is clickable, others are not
           if (relativeIndex === 0) {
-            htmlCard.setAttribute('aria-label', `Current card: ${htmlCard.querySelector('h3')?.textContent}. Click to see next category.`);
+            htmlCard.setAttribute(
+              "aria-label",
+              `Current card: ${htmlCard.querySelector("h3")?.textContent}. Click to see next category.`
+            );
           } else {
-            htmlCard.removeAttribute('aria-label');
+            htmlCard.removeAttribute("aria-label");
           }
-          
+
           // Remove will-change after animation completes
           setTimeout(() => {
-            htmlCard.style.willChange = 'auto';
+            htmlCard.style.willChange = "auto";
           }, 700);
         });
-        
+
         // Update navigation dots with smooth animation
         dots.forEach((dot, index) => {
           const htmlDot = dot as HTMLElement;
           if (index === currentIndex) {
-            htmlDot.style.background = 'linear-gradient(135deg, #4285f4, #ea4335)';
-            htmlDot.style.width = '2rem';
-            htmlDot.style.transform = 'scale(1)';
-            htmlDot.setAttribute('aria-label', `Current category ${index + 1}`);
+            htmlDot.style.background = "linear-gradient(135deg, #4285f4, #ea4335)";
+            htmlDot.style.width = "2rem";
+            htmlDot.style.transform = "scale(1)";
+            htmlDot.setAttribute("aria-label", `Current category ${index + 1}`);
           } else {
-            htmlDot.style.background = '#d1d5db';
-            htmlDot.style.width = '0.75rem';
-            htmlDot.style.transform = 'scale(1)';
-            htmlDot.setAttribute('aria-label', `Go to category ${index + 1}`);
+            htmlDot.style.background = "#d1d5db";
+            htmlDot.style.width = "0.75rem";
+            htmlDot.style.transform = "scale(1)";
+            htmlDot.setAttribute("aria-label", `Go to category ${index + 1}`);
           }
         });
       });
-      
+
       // Reset animation lock after transition completes
       setTimeout(() => {
         isAnimating = false;
       }, 750);
     }
-    
+
     // Click handler for cards - ONLY responds to clicks, not hover
     cards.forEach((card, index) => {
       const htmlCard = card as HTMLElement;
-      
+
       // Click event - moves card to back
-      htmlCard.addEventListener('click', (e) => {
+      htmlCard.addEventListener("click", (e) => {
         e.preventDefault();
         e.stopPropagation();
-        
+
         const relativeIndex = (index - currentIndex + cards.length) % cards.length;
-        
+
         // Only allow clicking the top card (relativeIndex === 0)
         if (relativeIndex === 0 && !isAnimating) {
           const nextIndex = (currentIndex + 1) % cards.length;
           updateCards(nextIndex);
         }
       });
-      
+
       // Prevent any drag or touch behaviors that might interfere
-      htmlCard.addEventListener('dragstart', (e) => e.preventDefault());
-      htmlCard.addEventListener('touchmove', (e) => {
-        // Prevent scrolling while touching cards
-        if (card.matches(':hover')) {
-          e.preventDefault();
-        }
-      }, { passive: false });
+      htmlCard.addEventListener("dragstart", (e) => e.preventDefault());
+      htmlCard.addEventListener(
+        "touchmove",
+        (e) => {
+          // Prevent scrolling while touching cards
+          if (card.matches(":hover")) {
+            e.preventDefault();
+          }
+        },
+        { passive: false }
+      );
     });
-    
+
     // Click handler for navigation dots
     dots.forEach((dot, index) => {
-      dot.addEventListener('click', (e) => {
+      dot.addEventListener("click", (e) => {
         e.preventDefault();
         if (!isAnimating) {
           updateCards(index);
         }
       });
     });
-    
+
     // Keyboard navigation for accessibility
     let isKeyboardNavigating = false;
-    document.addEventListener('keydown', (e) => {
+    document.addEventListener("keydown", (e) => {
       // Only handle keyboard navigation if not already animating
       if (isAnimating || isKeyboardNavigating) return;
-      
-      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+
+      if (e.key === "ArrowRight" || e.key === "ArrowDown") {
         e.preventDefault();
         isKeyboardNavigating = true;
         const nextIndex = (currentIndex + 1) % cards.length;
         updateCards(nextIndex);
-        setTimeout(() => { isKeyboardNavigating = false; }, 750);
-      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+        setTimeout(() => {
+          isKeyboardNavigating = false;
+        }, 750);
+      } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
         e.preventDefault();
         isKeyboardNavigating = true;
         const prevIndex = (currentIndex - 1 + cards.length) % cards.length;
         updateCards(prevIndex);
-        setTimeout(() => { isKeyboardNavigating = false; }, 750);
+        setTimeout(() => {
+          isKeyboardNavigating = false;
+        }, 750);
       }
     });
-    
+
     // Initialize ARIA attributes
     cards.forEach((card, index) => {
       const htmlCard = card as HTMLElement;
-      htmlCard.setAttribute('role', 'button');
-      htmlCard.setAttribute('tabindex', index === 0 ? '0' : '-1');
+      htmlCard.setAttribute("role", "button");
+      htmlCard.setAttribute("tabindex", index === 0 ? "0" : "-1");
     });
   });
 </script>
 
-<style define:vars={ { accentColor: siteConfig.accentColor } }>
+<style define:vars={{ accentColor: siteConfig.accentColor }}>
   :root {
     --accent-color: var(--accentColor);
   }
-  
+
   /* Stacked Cards Styles - Smooth Performance */
   .skill-card-stacked {
     will-change: auto;
@@ -303,45 +442,47 @@ const hasSkillCategories = siteConfig.skillCategories && siteConfig.skillCategor
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-  
+
   /* Only visible cards should be clickable */
   .skill-card-stacked[style*="pointer-events: auto"] {
     pointer-events: auto !important;
     cursor: pointer;
   }
-  
+
   .skill-card-stacked[style*="pointer-events: none"] {
     pointer-events: none !important;
     cursor: default;
   }
-  
+
   /* Ensure hidden cards stay completely invisible and non-interactive */
   .skill-card-stacked[style*="visibility: hidden"] {
     pointer-events: none !important;
     opacity: 0 !important;
     display: none;
   }
-  
+
   /* Active card enhanced glow */
   .skill-card-stacked[style*="z-index: 6"],
   .skill-card-stacked[style*="z-index: 5"] {
-    box-shadow: 0 32px 75px rgba(0, 0, 0, 0.26), 
-                0 0 0 1px rgba(66, 133, 244, 0.12),
-                0 0 45px rgba(66, 133, 244, 0.16);
+    box-shadow:
+      0 32px 75px rgba(0, 0, 0, 0.26),
+      0 0 0 1px rgba(66, 133, 244, 0.12),
+      0 0 45px rgba(66, 133, 244, 0.16);
   }
-  
+
   /* Skill tags - Google-like hover effect on border */
   .skill-tag-wrapper {
     background: #e5e7eb;
     transition: all 0.3s ease;
   }
-  
+
   .skill-tag-wrapper:hover {
     background: linear-gradient(135deg, #4285f4, #ea4335, #fbbc04, #34a853);
-    box-shadow: 0 10px 25px rgba(66, 133, 244, 0.3),
-                0 5px 15px rgba(234, 67, 53, 0.2);
+    box-shadow:
+      0 10px 25px rgba(66, 133, 244, 0.3),
+      0 5px 15px rgba(234, 67, 53, 0.2);
   }
-  
+
   .skill-tag {
     position: relative;
     transition: all 0.3s ease;
@@ -353,22 +494,24 @@ const hasSkillCategories = siteConfig.skillCategories && siteConfig.skillCategor
   }
 
   @keyframes fadeInOut {
-    0%, 100% {
+    0%,
+    100% {
       opacity: 0.5;
     }
     50% {
       opacity: 1;
     }
   }
-  
+
   /* Navigation dots with smooth animation */
   .skill-nav-dot {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     cursor: pointer;
   }
-  
+
   @keyframes dotPulse {
-    0%, 100% {
+    0%,
+    100% {
       transform: scale(1);
       box-shadow: 0 0 0 0 rgba(66, 133, 244, 0.5);
     }
@@ -377,13 +520,14 @@ const hasSkillCategories = siteConfig.skillCategories && siteConfig.skillCategor
       box-shadow: 0 0 0 8px rgba(66, 133, 244, 0);
     }
   }
-  
+
   .skill-nav-dot[style*="linear-gradient"] {
     animation: dotPulse 2.5s ease-in-out infinite;
   }
 
   @keyframes pulse {
-    0%, 100% {
+    0%,
+    100% {
       opacity: 0.2;
     }
     50% {
@@ -417,31 +561,43 @@ const hasSkillCategories = siteConfig.skillCategories && siteConfig.skillCategor
       transform: translateY(0) scale(1) rotateX(0deg);
     }
   }
-  
+
   .skill-card-stacked {
     animation: cardStack 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
   }
-  
+
   /* Staggered entrance animation for visual appeal */
-  .skill-card-stacked:nth-child(1) { animation-delay: 0.1s; }
-  .skill-card-stacked:nth-child(2) { animation-delay: 0.2s; }
-  .skill-card-stacked:nth-child(3) { animation-delay: 0.3s; }
-  .skill-card-stacked:nth-child(4) { animation-delay: 0.4s; }
-  .skill-card-stacked:nth-child(5) { animation-delay: 0.5s; }
-  .skill-card-stacked:nth-child(6) { animation-delay: 0.6s; }
-  
+  .skill-card-stacked:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+  .skill-card-stacked:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  .skill-card-stacked:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+  .skill-card-stacked:nth-child(4) {
+    animation-delay: 0.4s;
+  }
+  .skill-card-stacked:nth-child(5) {
+    animation-delay: 0.5s;
+  }
+  .skill-card-stacked:nth-child(6) {
+    animation-delay: 0.6s;
+  }
+
   /* Prevent layout shifts during animations */
   @media (prefers-reduced-motion: reduce) {
     .skill-card-stacked {
       animation: none;
       transition-duration: 0.3s;
     }
-    
+
     .skill-tag-wrapper:hover {
       transition-duration: 0.2s;
     }
   }
-  
+
   /* Smooth GPU-accelerated transforms */
   .skill-card-stacked,
   .skill-tag-wrapper {
