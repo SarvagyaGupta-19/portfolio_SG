@@ -24,15 +24,15 @@ function getPlatformIcon(cert: any) {
 ---
 
 {hasCertifications && (
-  <div id="certifications" class="w-full bg-gradient-to-b from-white via-blue-50/20 to-white py-24">
-    <div class="container mx-auto max-w-7xl px-6">
+  <section id="certifications" class="w-full bg-gradient-to-b from-white via-blue-50/20 to-white">
+    <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <!-- Section Header -->
       <div class="mb-16 text-center scroll-reveal">
-        <h2 class="mb-6 text-4xl font-bold text-gray-900 md:text-5xl" style="line-height: 1.2;">
-          Professional <span class="bg-gradient-to-r from-[#4285f4] via-[#ea4335] to-[#34a853] bg-clip-text text-transparent">Certifications</span>
+        <h2 class="mb-6 text-4xl font-bold text-gray-900 md:text-5xl leading-tight">
+          Professional <span class="text-[var(--accent-color)]">Certifications</span>
         </h2>
         <p class="mx-auto max-w-2xl text-lg text-gray-600" style="line-height: 1.8;">
-          Industry-recognized certifications in AI/ML, Cloud Computing, and Software Development
+          Industry-recognized certifications in Artificial Intelligence/Machine Learning.
         </p>
         <div class="mt-4 flex items-center justify-center gap-2 text-sm text-gray-500">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -86,16 +86,7 @@ function getPlatformIcon(cert: any) {
                   <span class="truncate">{cert.date}</span>
                 </div>
 
-                {/* Credential ID Badge */}
-                {cert.credentialId && (
-                  <div class="inline-flex items-center gap-1.5 rounded-md bg-gradient-to-r from-blue-50 to-indigo-50 px-2.5 py-1 text-xs font-medium text-blue-700 border border-blue-100">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-                      <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-                    </svg>
-                    <span class="truncate">{cert.credentialId}</span>
-                  </div>
-                )}
+
               </div>
             </div>
 
@@ -120,7 +111,7 @@ function getPlatformIcon(cert: any) {
         ))}
       </div>
     </div>
-  </div>
+  </section>
 )}
 
 <style define:vars={{ accentColor: siteConfig.accentColor }}>
