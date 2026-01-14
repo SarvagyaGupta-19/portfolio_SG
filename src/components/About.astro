@@ -2,8 +2,8 @@
 import { siteConfig } from "../config";
 ---
 
-<section id="about" class="px-8 sm:px-12 md:px-16 lg:px-24">
-  <div class="max-w-7xl mx-auto">
+<section id="about">
+  <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
       <div class="lg:col-span-4 scroll-reveal-left">
         <h2
@@ -20,34 +20,35 @@ import { siteConfig } from "../config";
       </div>
 
       <div class="lg:col-span-8 scroll-reveal-right">
-        <p class="text-lg sm:text-xl leading-relaxed text-gray-700" style="line-height: 1.8; text-align: justify; text-justify: inter-word; white-space: pre-line;">
+        <p
+          class="text-lg sm:text-xl leading-relaxed text-gray-700"
+          style="line-height: 1.8; text-align: justify; text-justify: inter-word; white-space: pre-line;"
+        >
           {siteConfig.aboutMe}
         </p>
-        
+
         {/* Tech Profile */}
-        {siteConfig.social?.codolio && (
-          <div class="mt-8">
-            <p class="text-sm font-medium text-gray-600 mb-3">Tech Profile:</p>
-            <div class="flex gap-4">
-              <a
-                href={siteConfig.social.codolio}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Codolio Tech Profile"
-                class="tech-profile-icon group"
-                title="View Tech Profile"
-              >
-                <div class="icon-container">
-                  <img 
-                    src="/codolio-owl.png" 
-                    alt="Tech Profile" 
-                    class="icon-image"
-                  />
-                </div>
-              </a>
+        {
+          siteConfig.social?.codolio && (
+            <div class="mt-8">
+              <p class="text-sm font-medium text-gray-600 mb-3">Tech Profile:</p>
+              <div class="flex gap-4">
+                <a
+                  href={siteConfig.social.codolio}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Codolio Tech Profile"
+                  class="tech-profile-icon group"
+                  title="View Tech Profile"
+                >
+                  <div class="icon-container">
+                    <img src="/codolio-owl.png" alt="Tech Profile" class="icon-image" />
+                  </div>
+                </a>
+              </div>
             </div>
-          </div>
-        )}
+          )
+        }
       </div>
     </div>
   </div>
@@ -73,11 +74,11 @@ import { siteConfig } from "../config";
     border-radius: 14px;
     transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
     overflow: hidden;
-    color: #8B4049;
+    color: #8b4049;
   }
 
   .tech-profile-icon .icon-container::before {
-    content: '';
+    content: "";
     position: absolute;
     inset: 0;
     background: currentColor;
