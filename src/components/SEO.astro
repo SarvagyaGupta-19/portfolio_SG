@@ -1,0 +1,105 @@
+---
+import { siteConfig } from "../config";
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  article?: boolean;
+}
+
+const { 
+  title = siteConfig.title, 
+  description = siteConfig.description,
+  image = "/og-image.jpg",
+  article = false
+} = Astro.props;
+
+const siteTitle = `${siteConfig.name} - ${title}`;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!-- Primary Meta Tags -->
+<title>{siteTitle}</title>
+<meta name="title" content={siteTitle} />
+<meta name="description" content={description} />
+<meta
+  name="keywords"
+  content="Sarvagya Gupta, AI Engineer, ML Engineer, Machine Learning, Deep Learning, LLMs, Large Language Models, RAG Systems, Computer Vision, NLP, PyTorch, TensorFlow, Python, AI Portfolio, MLOps, Generative AI, Transformers, BERT, GPT"
+/>
+<meta name="author" content={siteConfig.name} />
+<meta
+  name="robots"
+  content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+/>
+
+<!-- Canonical URL -->
+<link rel="canonical" href={canonicalURL} />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content={article ? "article" : "website"} />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:site_name" content={siteConfig.name} />
+<meta property="og:title" content={siteTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:locale" content="en_US" />
+<!-- <meta property="og:image" content={new URL(image, Astro.url)} /> -->
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@Sarvagya__Gupta" />
+<meta name="twitter:creator" content="@Sarvagya__Gupta" />
+<meta name="twitter:title" content={siteTitle} />
+<meta name="twitter:description" content={description} />
+<!-- <meta name="twitter:image" content={new URL(image, Astro.url)} /> -->
+
+<!-- Structured Data (JSON-LD) for SEO -->
+<script type="application/ld+json" is:inline set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": siteConfig.name,
+  "url": Astro.site,
+  "jobTitle": siteConfig.title,
+  "description": siteConfig.description,
+  "email": siteConfig.social.email,
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "Jaypee University of Engineering and Technology"
+  },
+  "sameAs": [
+    siteConfig.social.linkedin,
+    siteConfig.social.github,
+    siteConfig.social.twitter,
+    siteConfig.social.codolio
+  ].filter(Boolean),
+  "knowsAbout": [
+    "Artificial Intelligence",
+    "Machine Learning",
+    "Deep Learning",
+    "Large Language Models",
+    "Computer Vision",
+    "Natural Language Processing",
+    "PyTorch",
+    "TensorFlow",
+    "Python",
+    "MLOps"
+  ]
+})} />
+
+<!-- WebSite Structured Data -->
+<script type="application/ld+json" is:inline set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": `${siteConfig.name} Portfolio`,
+  "url": Astro.site,
+  "description": description,
+  "author": {
+    "@type": "Person",
+    "name": siteConfig.name
+  }
+})} />
+
+<!-- Security Headers -->
+<meta http-equiv="X-Content-Type-Options" content="nosniff" />
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()" />

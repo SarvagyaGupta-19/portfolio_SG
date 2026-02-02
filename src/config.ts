@@ -1,4 +1,6 @@
-export const siteConfig = {
+import type { SiteConfig } from "./types/config";
+
+export const siteConfig: SiteConfig = {
   name: "Sarvagya Gupta",
   title: "AI/ML Engineer",
   description: "AI/ML Engineer specializing in Large Language Models, RAG Systems, Computer Vision, and Production ML at Scale",
@@ -19,7 +21,7 @@ export const siteConfig = {
   skillCategories: [
     {
       category: "Programming & CS Fundamentals",
-      skills: ["Python", "C++", "C", "Data Structures","DBMS","Computer Networks","Operating Systems", "OOP", "System Design", "Algorithms"],
+      skills: ["Python", "C++", "C", "Data Structures", "DBMS", "Computer Networks", "Operating Systems", "OOP", "System Design", "Algorithms"],
     },
     {
       category: "Machine Learning & AI",
