@@ -169,7 +169,7 @@ export const siteConfig: SiteConfig = {
       name: "Multimodal RAG System for Healthcare",
       description:
         "Architected production-grade RAG pipeline processing medical images and text using LLaMA-2, ChromaDB, and LangChain. Achieved 92% accuracy on medical Q&A tasks with sub-200ms inference, serving 100K+ queries/day.",
-      link: "https://github.com/yourusername/healthcare-rag",
+      link: "https://github.com/yourusername/healthcare-rag", // TODO: Replace with actual project link
       skills: ["Python", "LLMs", "RAG", "Vector DB", "LangChain", "PyTorch", "CUDA"],
       image: "/project1.jpg",
     },
@@ -177,7 +177,7 @@ export const siteConfig: SiteConfig = {
       name: "Real-time Object Detection for Autonomous Systems",
       description:
         "Developed YOLOv8-based detection system optimized for edge devices. Implemented model quantization achieving 3x speed improvement while maintaining 89% mAP on custom dataset.",
-      link: "https://github.com/yourusername/autonomous-vision",
+      link: "https://github.com/yourusername/autonomous-vision", // TODO: Replace with actual project link
       skills: ["PyTorch", "OpenCV", "Computer Vision", "ONNX", "TensorRT", "C++"],
       image: "/project2.jpg",
     },
@@ -185,7 +185,7 @@ export const siteConfig: SiteConfig = {
       name: "Financial Sentiment Analysis with Transformers",
       description:
         "Fine-tuned FinBERT for high-frequency trading signals from news and social media. Deployed on Kubernetes with 99.9% uptime, processing 10K+ texts per second.",
-      link: "https://github.com/yourusername/fin-sentiment",
+      link: "https://github.com/yourusername/fin-sentiment", // TODO: Replace with actual project link
       skills: ["PyTorch", "Transformers", "NLP", "Kubernetes", "Redis", "Kafka"],
       image: "/project3.jpg",
     },
@@ -193,7 +193,7 @@ export const siteConfig: SiteConfig = {
       name: "Distributed Training Framework for LLMs",
       description:
         "Built custom distributed training pipeline using DeepSpeed and FSDP for training 7B+ parameter models. Reduced training costs by 60% through efficient resource utilization.",
-      link: "https://github.com/yourusername/distributed-llm-training",
+      link: "https://github.com/yourusername/distributed-llm-training", // TODO: Replace with actual project link
       skills: ["PyTorch", "DeepSpeed", "CUDA", "AWS", "Ray", "MLOps"],
       image: "/project4.jpg",
     },
@@ -201,7 +201,7 @@ export const siteConfig: SiteConfig = {
       name: "GAN-based Image Synthesis for Data Augmentation",
       description:
         "Implemented StyleGAN2-ADA for generating synthetic training data. Improved downstream model performance by 15% on imbalanced datasets through intelligent augmentation.",
-      link: "https://github.com/yourusername/gan-augmentation",
+      link: "https://github.com/yourusername/gan-augmentation", // TODO: Replace with actual project link
       skills: ["PyTorch", "GANs", "Computer Vision", "MLflow", "Weights & Biases"],
       image: "/project5.jpg",
     },
@@ -209,7 +209,7 @@ export const siteConfig: SiteConfig = {
       name: "Neural Architecture Search for Efficient Models",
       description:
         "Implemented automated NAS system using reinforcement learning to discover optimal architectures for edge deployment. Generated models 40% smaller with 5% accuracy improvement over manual designs.",
-      link: "https://github.com/yourusername/nas-efficient-models",
+      link: "https://github.com/yourusername/nas-efficient-models", // TODO: Replace with actual project link
       skills: ["PyTorch", "Reinforcement Learning", "AutoML", "Model Compression", "ONNX"],
       image: "/project6.jpg",
     },
@@ -225,7 +225,7 @@ export const siteConfig: SiteConfig = {
         "Implemented comprehensive model evaluation framework with confusion matrices, precision-recall curves, and performance monitoring dashboard using Streamlit",
         "Collaborated with cross-functional team to deploy ML model to production environment, ensuring scalability and reliability through containerization and load testing",
       ],
-      githubLink: "https://github.com/yourusername/skillcraft-ml-project",
+      githubLink: "https://github.com/yourusername/skillcraft-ml-project", // TODO: Replace with actual project link
     },
   ],
   education: [
