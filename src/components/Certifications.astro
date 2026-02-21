@@ -1,10 +1,12 @@
 ---
 import { siteConfig } from "../config";
 
+import type { Certification } from "../types/config";
+
 const hasCertifications = siteConfig.certifications && siteConfig.certifications.length > 0;
 
 // Helper function to get platform icon - now supports custom logo paths
-function getPlatformIcon(cert: any) {
+function getPlatformIcon(cert: Certification) {
   // If certificate has a custom logo path, use it
   if (cert.logo) {
     return `<img src="${cert.logo}" alt="${cert.issuer} logo" class="h-14 w-14 object-contain rounded-lg p-1.5 bg-gray-50 border border-gray-100" />`;
