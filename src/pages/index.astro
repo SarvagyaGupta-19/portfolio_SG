@@ -3,11 +3,13 @@ import Layout from "../layouts/Layout.astro";
 import SEO from "../components/SEO.astro";
 import Hero from "../components/Hero.astro";
 import About from "../components/About.astro";
+import Experience from "../components/Experience.astro";
 import SkillsEnhanced from "../components/SkillsEnhanced.astro";
 import Projects from "../components/Projects.astro";
-import Experience from "../components/Experience.astro";
 import Certifications from "../components/Certifications.astro";
 import Education from "../components/Education.astro";
+import BottomNav from "../components/BottomNav.astro";
+import CommandPalette from "../components/CommandPalette.astro";
 ---
 
 <Layout>
@@ -15,9 +17,12 @@ import Education from "../components/Education.astro";
 
   <Hero />
   <About />
+  <Experience />
   <SkillsEnhanced />
   <Projects />
-  <Experience />
   <Certifications />
   <Education />
+
+  <BottomNav slot="bottom-nav" />
+  <CommandPalette slot="bottom-nav" />
 </Layout>

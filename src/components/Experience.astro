@@ -5,85 +5,96 @@ const hasExperience = siteConfig.experience && siteConfig.experience.length > 0;
 
 {
   hasExperience && (
-    <section id="experience">
-      <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
-          <div class="lg:col-span-4 scroll-reveal-left">
-            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-4">
-              Experience
-            </h2>
-            <div class="w-[75px] h-[5px] rounded-full bg-[var(--accent-color)]" />
-          </div>
+    <section id="experience" class="w-full">
+      <h2 class="text-xl font-bold text-gray-900 mb-6">Work Experience</h2>
 
-          <div class="lg:col-span-8">
-            <div class="relative">
-              {siteConfig.experience.map((exp, index) => (
-                <div
-                  class={`scroll-reveal scroll-reveal-delay-${(index % 6) + 1} relative mb-12 last:mb-0`}
-                >
-                  {/* Timeline dot at top of card */}
-                  <div class="absolute left-1/2 -top-2 w-4 h-4 bg-white border-2 border-[var(--accent-color)] bg-[var(--accent-color)] rounded-full -translate-x-1/2 z-20 transition-all duration-300" />
+      <div class="relative">
+        <!-- Vertical timeline line -->
+        <div class="absolute left-6 top-6 bottom-6 w-[1px] bg-gray-200"></div>
 
-                  {/* Connecting line below card */}
-                  {index < siteConfig.experience.length - 1 && (
-                    <div class="absolute left-1/2 bottom-0 w-0.5 h-12 bg-gray-300 -translate-x-1/2 translate-y-full z-10" />
+        <div class="space-y-6">
+          {siteConfig.experience.map((exp, index) => (
+            <div class="flex items-stretch gap-6 scroll-reveal relative">
+              <!-- Company Icon on Timeline -->
+              <div class="relative z-10 flex-shrink-0 mt-4">
+                <div class="exp-icon bg-white shadow-sm overflow-hidden">
+                  {exp.logo ? (
+                    <img src={exp.logo} alt={exp.company} class="w-full h-full object-contain p-1" loading="lazy" />
+                  ) : (
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                      <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+                    </svg>
                   )}
-
-                  {/* Experience card */}
-                  <div class="bg-white rounded-lg shadow-sm border border-gray-100 p-6 sm:p-7 md:p-8 hover:shadow-md transition-shadow duration-300 group">
-                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-5">
-                      <div>
-                        <h3 class="text-lg sm:text-xl font-semibold text-gray-900 leading-tight mb-2">
-                          {exp.title}
-                        </h3>
-                        <p class="text-base sm:text-lg font-medium text-[var(--accent-color)] leading-snug">
-                          {exp.company}
-                        </p>
-                      </div>
-                      <span class="text-xs sm:text-sm text-gray-500 mt-2 sm:mt-0 whitespace-nowrap">
-                        {exp.dateRange}
-                      </span>
-                    </div>
-
-                    <ul class="space-y-3">
-                      {exp.bullets.map((bullet) => (
-                        <li class="flex items-start">
-                          <span class="inline-block w-1.5 h-1.5 rounded-full bg-gray-400 mt-2 mr-3 flex-shrink-0" />
-                          <span class="text-sm sm:text-base text-gray-600 leading-relaxed text-justify">
-                            {bullet}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    {/* GitHub Link Button */}
-                    {exp.githubLink && (
-                      <div class="mt-5 pt-4 border-t border-gray-100">
-                        <a
-                          href={exp.githubLink}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-medium text-sm text-white transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 bg-[var(--accent-color)]"
-                        >
-                          <svg
-                            class="w-5 h-5"
-                            fill="currentColor"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                          </svg>
-                          View Project on GitHub
-                        </a>
-                      </div>
-                    )}
-                  </div>
                 </div>
-              ))}
+              </div>
+
+              <!-- Content Card -->
+              <div class="exp-card flex-1 min-w-0 flex flex-col">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-1">
+                  <h3 class="text-base font-semibold text-gray-900">{exp.company}</h3>
+                  <span class="text-sm text-gray-500">{exp.dateRange}</span>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+                  <p class="text-mono text-sm text-gray-700">{exp.title}</p>
+                  {exp.type && (
+                    <span class="exp-badge flex-shrink-0">{exp.type}</span>
+                  )}
+                </div>
+
+                <div class="space-y-2 mt-auto">
+                  {exp.bullets.map((bullet) => (
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                      {bullet}
+                    </p>
+                  ))}
+                </div>
+              </div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
   )
 }
+
+<style>
+  .exp-card {
+    padding: 20px 24px;
+    border: 1px solid #f0f0f0;
+    border-radius: 12px;
+    background: #fff;
+    transition: all 0.2s ease;
+  }
+
+  .exp-card:hover {
+    border-color: #d4d4d8;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+  }
+
+  .exp-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: #4b5563;
+    border: 1px solid #e5e7eb;
+  }
+
+  .exp-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 8px;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: #111827;
+    background: #f9fafb;
+    white-space: nowrap;
+  }
+</style>

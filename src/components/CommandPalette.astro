@@ -1,0 +1,276 @@
+---
+import { siteConfig } from "../config";
+---
+
+<div id="cmdk-backdrop" class="fixed inset-0 bg-gray-900/50 backdrop-blur-sm z-[1000] hidden opacity-0 transition-opacity duration-200">
+  <div class="fixed inset-0 flex items-start justify-center pt-[15vh] sm:pt-[20vh] px-4">
+    <div id="cmdk-modal" class="bg-white w-full max-w-lg rounded-xl shadow-2xl border border-gray-200 overflow-hidden transform scale-95 transition-transform duration-200 flex flex-col max-h-[60vh]">
+      
+      <!-- Search Input -->
+      <div class="flex items-center px-4 py-3 border-b border-gray-100">
+        <svg class="w-5 h-5 text-gray-400 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+        </svg>
+        <input 
+          type="text" 
+          id="cmdk-input" 
+          class="w-full bg-transparent border-none focus:outline-none focus:ring-0 text-base text-gray-900 placeholder-gray-400 font-sans" 
+          placeholder="Type a command or search..."
+          autocomplete="off"
+        />
+        <button id="cmdk-close" class="text-gray-400 hover:text-gray-600 p-1">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Results List -->
+      <div id="cmdk-list" class="overflow-y-auto p-2 flex-grow">
+        
+        <!-- Navigation Group -->
+        <div class="cmdk-group mb-4" data-group="Navigation">
+          <div class="px-3 py-1.5 text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">Navigation</div>
+          
+          <a href="#hero" class="cmdk-item flex items-center px-3 py-2.5 text-sm text-gray-700 rounded-lg hover:bg-gray-100 hover:text-gray-900 transition-colors" data-value="home">
+            <svg class="w-4 h-4 mr-3 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            Home
+          </a>
+          
+          <a href="#about" class="cmdk-item flex items-center px-3 py-2.5 text-sm text-gray-700 rounded-lg hover:bg-gray-100 hover:text-gray-900 transition-colors" data-value="about">
+            <svg class="w-4 h-4 mr-3 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+            About
+          </a>
+
+          <a href="#experience" class="cmdk-item flex items-center px-3 py-2.5 text-sm text-gray-700 rounded-lg hover:bg-gray-100 hover:text-gray-900 transition-colors" data-value="work experience">
+            <svg class="w-4 h-4 mr-3 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+            </svg>
+            Work
+          </a>
+
+
+
+          <a href="#projects" class="cmdk-item flex items-center px-3 py-2.5 text-sm text-gray-700 rounded-lg hover:bg-gray-100 hover:text-gray-900 transition-colors" data-value="projects">
+            <svg class="w-4 h-4 mr-3 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline>
+            </svg>
+            Projects
+          </a>
+
+          <a href="#education" class="cmdk-item flex items-center px-3 py-2.5 text-sm text-gray-700 rounded-lg hover:bg-gray-100 hover:text-gray-900 transition-colors" data-value="education certifications">
+            <svg class="w-4 h-4 mr-3 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path>
+            </svg>
+            Education
+          </a>
+        </div>
+
+        <!-- Actions Group -->
+        <div class="cmdk-group mb-4" data-group="Actions">
+          <div class="px-3 py-1.5 text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">Actions</div>
+          
+          <button type="button" class="cmdk-item w-full text-left flex items-center px-3 py-2.5 text-sm text-gray-700 rounded-lg hover:bg-gray-100 hover:text-gray-900 transition-colors" data-value="print resume cv" id="cmdk-print">
+            <svg class="w-4 h-4 mr-3 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect>
+            </svg>
+            Print
+          </button>
+        </div>
+
+        <!-- Links Group -->
+        <div class="cmdk-group" data-group="Links">
+          <div class="px-3 py-1.5 text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">Links</div>
+          
+          <a href="#" class="cmdk-item flex items-center px-3 py-2.5 text-sm text-gray-700 rounded-lg hover:bg-gray-100 hover:text-gray-900 transition-colors" data-value="personal website portfolio">
+            <svg class="w-4 h-4 mr-3 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+            </svg>
+            Personal Website
+          </a>
+
+
+
+          {siteConfig.social.github && (
+            <a href={siteConfig.social.github} target="_blank" rel="noopener noreferrer" class="cmdk-item flex items-center px-3 py-2.5 text-sm text-gray-700 rounded-lg hover:bg-gray-100 hover:text-gray-900 transition-colors" data-value="github repository code">
+              <svg class="w-4 h-4 mr-3 text-gray-500" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path></svg>
+              GitHub
+            </a>
+          )}
+
+          {siteConfig.social.linkedin && (
+            <a href={siteConfig.social.linkedin} target="_blank" rel="noopener noreferrer" class="cmdk-item flex items-center px-3 py-2.5 text-sm text-gray-700 rounded-lg hover:bg-gray-100 hover:text-gray-900 transition-colors" data-value="linkedin social profile">
+              <svg class="w-4 h-4 mr-3 text-gray-500" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              LinkedIn
+            </a>
+          )}
+        </div>
+        
+        <!-- Empty State -->
+        <div id="cmdk-empty" class="hidden py-14 text-center text-sm text-gray-500">
+          No results found.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Selection state for keyboard navigation */
+  .cmdk-item.selected {
+    background-color: #f3f4f6; /* bg-gray-100 */
+    color: #111827; /* text-gray-900 */
+  }
+</style>
+
+<script>
+  // Wait for DOM
+  document.addEventListener('DOMContentLoaded', () => {
+    const backdrop = document.getElementById('cmdk-backdrop');
+    const modal = document.getElementById('cmdk-modal');
+    const input = document.getElementById('cmdk-input') as HTMLInputElement;
+    const trigger = document.getElementById('cmdk-trigger');
+    const closeBtn = document.getElementById('cmdk-close');
+    const items = Array.from(document.querySelectorAll('.cmdk-item')) as HTMLElement[];
+    const groups = Array.from(document.querySelectorAll('.cmdk-group')) as HTMLElement[];
+    const emptyState = document.getElementById('cmdk-empty');
+    const printBtn = document.getElementById('cmdk-print');
+
+    let isOpen = false;
+    let selectedIndex = 0;
+    let visibleItems = items;
+
+    // Toggle logic
+    const openModal = () => {
+      isOpen = true;
+      backdrop.classList.remove('hidden');
+      // Trigger reflow
+      void backdrop.offsetWidth;
+      backdrop.classList.remove('opacity-0');
+      modal.classList.remove('scale-95');
+      input.value = '';
+      filterItems('');
+      input.focus();
+    };
+
+    const closeModal = () => {
+      isOpen = false;
+      backdrop.classList.add('opacity-0');
+      modal.classList.add('scale-95');
+      setTimeout(() => {
+        backdrop.classList.add('hidden');
+      }, 200);
+    };
+
+    // Event Listeners
+    if (trigger) trigger.addEventListener('click', openModal);
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+    
+    // Close on backdrop click
+    backdrop?.addEventListener('click', (e) => {
+      if (e.target === backdrop || (e.target as HTMLElement).closest('.fixed.inset-0.flex') === e.target) {
+        closeModal();
+      }
+    });
+
+    // Keyboard shortcuts
+    document.addEventListener('keydown', (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        isOpen ? closeModal() : openModal();
+      }
+      
+      if (isOpen && e.key === 'Escape') {
+        e.preventDefault();
+        closeModal();
+      }
+
+      // Navigation
+      if (isOpen) {
+        if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          selectedIndex = (selectedIndex + 1) % visibleItems.length;
+          updateSelection();
+        } else if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          selectedIndex = (selectedIndex - 1 + visibleItems.length) % visibleItems.length;
+          updateSelection();
+        } else if (e.key === 'Enter') {
+          e.preventDefault();
+          if (visibleItems[selectedIndex]) {
+            visibleItems[selectedIndex].click();
+          }
+        }
+      }
+    });
+
+    // Handle clicks on items
+    items.forEach(item => {
+      item.addEventListener('click', () => {
+        closeModal();
+      });
+    });
+
+    // Handle Print action
+    if (printBtn) {
+      printBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.print();
+      });
+    }
+
+    // Filtering logic
+    input?.addEventListener('input', (e) => {
+      filterItems((e.target as HTMLInputElement).value);
+    });
+
+    function filterItems(query: string) {
+      const q = query.toLowerCase().trim();
+      visibleItems = [];
+
+      groups.forEach(group => {
+        const groupItems = Array.from(group.querySelectorAll('.cmdk-item')) as HTMLElement[];
+        let hasVisible = false;
+
+        groupItems.forEach(item => {
+          const text = (item.textContent || '').toLowerCase();
+          const dataValue = (item.getAttribute('data-value') || '').toLowerCase();
+          
+          if (text.includes(q) || dataValue.includes(q)) {
+            item.style.display = 'flex';
+            visibleItems.push(item);
+            hasVisible = true;
+          } else {
+            item.style.display = 'none';
+          }
+        });
+
+        // Hide group if no items match
+        group.style.display = hasVisible ? 'block' : 'none';
+      });
+
+      if (visibleItems.length === 0) {
+        emptyState?.classList.remove('hidden');
+      } else {
+        emptyState?.classList.add('hidden');
+      }
+
+      selectedIndex = 0;
+      updateSelection();
+    }
+
+    function updateSelection() {
+      items.forEach(item => item.classList.remove('selected', 'bg-gray-100'));
+      if (visibleItems.length > 0) {
+        const current = visibleItems[selectedIndex];
+        current.classList.add('selected', 'bg-gray-100');
+        // Auto scroll
+        current.scrollIntoView({ block: 'nearest' });
+      }
+    }
+  });
+</script>

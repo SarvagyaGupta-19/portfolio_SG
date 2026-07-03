@@ -1,97 +1,59 @@
 ---
 import { siteConfig } from "../config";
 import "../styles/global.css";
-import Loader from "../components/Loader.astro";
-import Footer from "../components/Footer.astro";
-import Header from "../components/Header.astro";
 
 interface Props {
   title?: string;
   description?: string;
 }
 
-const { title = siteConfig.title, description = siteConfig.description } = Astro.props;
+const { 
+  title = siteConfig.name, 
+  description = siteConfig.title 
+} = Astro.props;
 ---
 
-<!doctype html>
-<html lang="en" prefix="og: https://ogp.me/ns#">
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
     
-    <slot name="seo" />
-
-    <meta name="generator" content={Astro.generator} />
-    <meta name="theme-color" content={siteConfig.accentColor} />
-    <meta name="color-scheme" content="light" />
-
-    <!-- Favicon & Icons -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.svg" />
-
-    <!-- Fonts -->
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- Preconnect to Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
-    <noscript>
-      <link
-        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
-        rel="stylesheet"
-      />
-    </noscript>
+    <!-- Inter (sans) and JetBrains Mono (mono) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
-    <!-- Web App Manifest -->
-    <link rel="manifest" href="/manifest.json" />
-    
-    <slot name="head" />
+    <title>{title}</title>
+    <slot name="seo" />
   </head>
-  <body class="page-enter" itemscope itemtype="https://schema.org/WebPage">
-    <!-- Google-Inspired Animated Background -->
-    <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
-      <div class="google-bg-orb google-blue"></div>
-      <div class="google-bg-orb google-red"></div>
-      <div class="google-bg-orb google-yellow"></div>
-      <div class="google-bg-orb google-green"></div>
-    </div>
-
-    <!-- Loading Screen -->
-    <Loader />
-
-    <!-- Header Navigation -->
-    <Header />
-
-    <!-- Main Content -->
-    <main id="main-content" role="main" aria-label="Main content">
+  <body class="bg-white text-gray-900 antialiased min-h-screen flex flex-col selection:bg-gray-200">
+    <!-- Main content wrapper -->
+    <main class="flex-grow w-full max-w-4xl mx-auto px-6 sm:px-8 py-16 sm:py-24 space-y-24">
       <slot />
     </main>
 
-    <!-- Footer -->
-    <Footer />
+    <!-- Bottom Nav -->
+    <slot name="bottom-nav">
+      <!-- Injected by index.astro or handled globally -->
+    </slot>
 
-    <!-- Scroll to Top Arrow Button -->
-    <button id="scroll-to-top" class="scroll-to-top-btn" aria-label="Scroll to top">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="20"
-        height="20"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
+    <!-- Scroll to top -->
+    <button
+      id="scroll-to-top"
+      class="fixed bottom-6 right-6 p-2 bg-white border border-gray-200 rounded-lg shadow-sm text-gray-600 hover:text-gray-900 hover:bg-gray-50 transition-all opacity-0 translate-y-4 pointer-events-none z-50"
+      aria-label="Scroll to top"
+    >
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <polyline points="18 15 12 9 6 15"></polyline>
       </svg>
     </button>
 
-    <script>
-      // Global Scripts
-      import "../scripts/global";
-    </script>
+    <script src="../scripts/global.ts"></script>
   </body>
 </html>

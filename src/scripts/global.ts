@@ -1,19 +1,3 @@
-// Performance monitoring
-if ("performance" in window && "PerformanceObserver" in window) {
-  // Core Web Vitals monitoring
-  const observer = new PerformanceObserver((list) => {
-    for (const entry of list.getEntries()) {
-      // console.log(`${entry.name}: ${entry.startTime}ms`);
-    }
-  });
-
-  try {
-    observer.observe({ entryTypes: ["paint", "largest-contentful-paint"] });
-  } catch (e) {
-    // Observer not supported
-  }
-}
-
 // Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
@@ -31,7 +15,7 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   });
 });
 
-// Scroll to top button functionality
+// Scroll to top button
 const scrollToTopBtn = document.getElementById("scroll-to-top");
 
 window.addEventListener("scroll", () => {
@@ -50,27 +34,21 @@ scrollToTopBtn?.addEventListener("click", () => {
 });
 
 // Scroll reveal animation
-const observerOptions = {
-  root: null,
-  rootMargin: "0px",
-  threshold: 0.05,
-};
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("revealed");
-    }
-  });
-}, observerOptions);
-
-// Observe all elements with scroll-reveal classes
-const revealElements = document.querySelectorAll(
-  ".scroll-reveal, .scroll-reveal-left, .scroll-reveal-right, .scroll-reveal-scale"
+const revealObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("revealed");
+      }
+    });
+  },
+  { root: null, rootMargin: "0px", threshold: 0.05 }
 );
-revealElements.forEach((el) => observer.observe(el));
 
-// Trigger initial check for elements already in viewport
+const revealElements = document.querySelectorAll(".scroll-reveal");
+revealElements.forEach((el) => revealObserver.observe(el));
+
+// Initial check for elements already in viewport
 setTimeout(() => {
   revealElements.forEach((el) => {
     const rect = el.getBoundingClientRect();
@@ -79,3 +57,52 @@ setTimeout(() => {
     }
   });
 }, 100);
+
+// Active section detection for bottom nav
+const navItems = document.querySelectorAll("#bottom-nav .nav-item") as NodeListOf<HTMLElement>;
+const sectionIds = ["hero", "about", "experience", "skills", "projects", "certifications", "education"];
+
+const updateActiveNav = () => {
+  const scrollY = window.scrollY;
+  const windowHeight = window.innerHeight;
+  const docHeight = document.documentElement.scrollHeight;
+
+  // If at the very bottom, highlight last section
+  if (scrollY + windowHeight >= docHeight - 50) {
+    navItems.forEach((item) => item.classList.remove("active"));
+    const lastNav = document.querySelector(`#bottom-nav .nav-item[data-section="education"]`);
+    lastNav?.classList.add("active");
+    return;
+  }
+
+  // Find which section is most visible
+  let activeId = "hero";
+  
+  // If we're near the top, hero is active
+  if (scrollY < 100) {
+    activeId = "hero";
+  } else {
+    for (const id of sectionIds) {
+      const section = document.getElementById(id);
+      if (section) {
+        const sectionTop = section.offsetTop;
+        // Section is considered "active" when we've scrolled past its top (minus offset)
+        if (scrollY >= sectionTop - 200) {
+          activeId = id;
+        }
+      }
+    }
+  }
+
+  navItems.forEach((item) => {
+    if (item.getAttribute("data-section") === activeId) {
+      item.classList.add("active");
+    } else {
+      item.classList.remove("active");
+    }
+  });
+};
+
+window.addEventListener("scroll", updateActiveNav, { passive: true });
+// Run on load
+updateActiveNav();

@@ -24,7 +24,8 @@ export interface Project {
     description: string;
     link: string;
     skills: string[];
-    image: string;
+    image?: string;
+    liveDemo?: string;
 }
 
 export interface ExperienceConfig {
@@ -33,6 +34,8 @@ export interface ExperienceConfig {
     dateRange: string;
     bullets: string[];
     githubLink?: string;
+    type?: string; // "On Site", "Remote", "Hybrid"
+    logo?: string;
 }
 
 export interface EducationConfig {
@@ -40,18 +43,20 @@ export interface EducationConfig {
     degree: string;
     dateRange: string;
     achievements: string[];
+    logo?: string;
 }
 
 export interface SiteConfig {
     name: string;
+    profileImage?: string;
     title: string;
     description: string;
+    summary: string;
     accentColor: string;
     social: SocialConfig;
     resumeLink?: string;
-    aboutMe: string;
+    about: string[];
     skillCategories: SkillCategory[];
-    skills: string[]; // For backward compatibility
     certifications: Certification[];
     projects: Project[];
     experience: ExperienceConfig[];
