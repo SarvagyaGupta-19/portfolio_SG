@@ -76,14 +76,38 @@ const nameLetters = siteConfig.name.split("");
   }
 </style>
 
+<style is:global>
+  /* Hide scrollbar and content while loading */
+  body.is-loading {
+    overflow: hidden;
+  }
+  
+  body.is-loading main > *:not(#loader),
+  body.is-loading > button,
+  body.is-loading > .bottom-nav {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  main > *:not(#loader),
+  body > button,
+  body > .bottom-nav {
+    transition: opacity 0.8s ease;
+  }
+</style>
+
 <script>
   const initLoader = () => {
     const loader = document.getElementById("loader");
     if (!loader) return;
     
+    // Lock scrolling and hide content initially
+    document.body.classList.add("is-loading");
+    
     // We remove the loader after animations + short reading time (2.4s)
     setTimeout(() => {
       loader.classList.add("hide");
+      document.body.classList.remove("is-loading");
       
       setTimeout(() => {
         loader.remove();
