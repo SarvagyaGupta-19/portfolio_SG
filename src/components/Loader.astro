@@ -4,12 +4,12 @@ import { siteConfig } from "../config";
 const nameLetters = siteConfig.name.split("");
 ---
 
-<div id="loader" class="fixed inset-0 z-[9999] bg-white flex flex-col items-center justify-center transition-all duration-700 ease-[cubic-bezier(0.76,0,0.24,1)]">
-  <div class="flex items-center justify-center overflow-hidden py-2 px-4">
+<div id="loader" style="position: fixed; inset: 0; z-index: 99999; background-color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: all 0.7s cubic-bezier(0.76,0,0.24,1);">
+  <div style="display: flex; align-items: center; justify-content: center; overflow: hidden; padding: 0.5rem 1rem;">
     {nameLetters.map((letter, i) => (
-      <div class="overflow-hidden flex items-center">
+      <div style="overflow: hidden; display: flex; align-items: center;">
         <span 
-          class="block font-black text-4xl sm:text-6xl md:text-8xl text-gray-900 tracking-tighter uppercase translate-y-[120%] animate-roll-up" 
+          class="loader-letter"
           style={`animation-delay: ${i * 0.05}s; ${letter === ' ' ? 'width: 0.3em;' : ''}`}
         >
           {letter}
@@ -18,14 +18,37 @@ const nameLetters = siteConfig.name.split("");
     ))}
   </div>
   
-  <div class="overflow-hidden mt-6 px-4 text-center">
-    <p class="text-mono text-[10px] sm:text-xs md:text-sm font-semibold tracking-[0.2em] text-gray-500 uppercase translate-y-full opacity-0 animate-fade-in" style={`animation-delay: ${nameLetters.length * 0.05 + 0.2}s;`}>
+  <div style="overflow: hidden; margin-top: 1.5rem; padding: 0 1rem; text-align: center;">
+    <p class="loader-subtitle" style={`animation-delay: ${nameLetters.length * 0.05 + 0.2}s;`}>
       {siteConfig.summary ? siteConfig.title.toUpperCase() + " | " + siteConfig.name.toUpperCase() : siteConfig.title}
     </p>
   </div>
 </div>
 
 <style>
+  .loader-letter {
+    display: block;
+    font-weight: 900;
+    font-size: clamp(2.5rem, 8vw, 6rem);
+    color: #111827;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+    transform: translateY(120%);
+    animation: rollUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .loader-subtitle {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: clamp(0.625rem, 2vw, 0.875rem);
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    color: #4b5563;
+    text-transform: uppercase;
+    transform: translateY(100%);
+    opacity: 0;
+    animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
   @keyframes rollUp {
     0% {
       transform: translateY(120%);
@@ -46,32 +69,28 @@ const nameLetters = siteConfig.name.split("");
     }
   }
 
-  .animate-roll-up {
-    animation: rollUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  }
-  
-  .animate-fade-in {
-    animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  }
-
   #loader.hide {
-    transform: translateY(-100%);
-    opacity: 0;
+    transform: translateY(-100%) !important;
+    opacity: 0 !important;
     pointer-events: none;
   }
 </style>
 
 <script>
-  const loader = document.getElementById("loader");
-  
-  // We remove the loader after animations + short reading time (2.4s)
-  setTimeout(() => {
-    if (loader) {
+  const initLoader = () => {
+    const loader = document.getElementById("loader");
+    if (!loader) return;
+    
+    // We remove the loader after animations + short reading time (2.4s)
+    setTimeout(() => {
       loader.classList.add("hide");
       
       setTimeout(() => {
         loader.remove();
       }, 800); // Allow slide up animation to finish before removing from DOM
-    }
-  }, 2400);
+    }, 2400);
+  };
+  
+  // Run it
+  initLoader();
 </script>
