@@ -1,0 +1,77 @@
+---
+import { siteConfig } from "../config";
+
+const nameLetters = siteConfig.name.split("");
+---
+
+<div id="loader" class="fixed inset-0 z-[9999] bg-white flex flex-col items-center justify-center transition-all duration-700 ease-[cubic-bezier(0.76,0,0.24,1)]">
+  <div class="flex items-center justify-center overflow-hidden py-2 px-4">
+    {nameLetters.map((letter, i) => (
+      <div class="overflow-hidden flex items-center">
+        <span 
+          class="block font-black text-4xl sm:text-6xl md:text-8xl text-gray-900 tracking-tighter uppercase translate-y-[120%] animate-roll-up" 
+          style={`animation-delay: ${i * 0.05}s; ${letter === ' ' ? 'width: 0.3em;' : ''}`}
+        >
+          {letter}
+        </span>
+      </div>
+    ))}
+  </div>
+  
+  <div class="overflow-hidden mt-6 px-4 text-center">
+    <p class="text-mono text-[10px] sm:text-xs md:text-sm font-semibold tracking-[0.2em] text-gray-500 uppercase translate-y-full opacity-0 animate-fade-in" style={`animation-delay: ${nameLetters.length * 0.05 + 0.2}s;`}>
+      {siteConfig.summary ? siteConfig.title.toUpperCase() + " | " + siteConfig.name.toUpperCase() : siteConfig.title}
+    </p>
+  </div>
+</div>
+
+<style>
+  @keyframes rollUp {
+    0% {
+      transform: translateY(120%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    0% {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .animate-roll-up {
+    animation: rollUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  #loader.hide {
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+  }
+</style>
+
+<script>
+  const loader = document.getElementById("loader");
+  
+  // We remove the loader after animations + short reading time (2.4s)
+  setTimeout(() => {
+    if (loader) {
+      loader.classList.add("hide");
+      
+      setTimeout(() => {
+        loader.remove();
+      }, 800); // Allow slide up animation to finish before removing from DOM
+    }
+  }, 2400);
+</script>
