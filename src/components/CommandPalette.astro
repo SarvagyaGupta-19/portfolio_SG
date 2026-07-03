@@ -55,11 +55,25 @@ import { siteConfig } from "../config";
 
 
 
+          <a href="#skills" class="cmdk-item flex items-center px-3 py-2.5 text-sm text-gray-700 rounded-lg hover:bg-gray-100 hover:text-gray-900 transition-colors" data-value="skills technologies">
+            <svg class="w-4 h-4 mr-3 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+            </svg>
+            Skills
+          </a>
+
           <a href="#projects" class="cmdk-item flex items-center px-3 py-2.5 text-sm text-gray-700 rounded-lg hover:bg-gray-100 hover:text-gray-900 transition-colors" data-value="projects">
             <svg class="w-4 h-4 mr-3 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline>
             </svg>
             Projects
+          </a>
+
+          <a href="#certifications" class="cmdk-item flex items-center px-3 py-2.5 text-sm text-gray-700 rounded-lg hover:bg-gray-100 hover:text-gray-900 transition-colors" data-value="certifications awards">
+            <svg class="w-4 h-4 mr-3 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+            </svg>
+            Certifications
           </a>
 
           <a href="#education" class="cmdk-item flex items-center px-3 py-2.5 text-sm text-gray-700 rounded-lg hover:bg-gray-100 hover:text-gray-900 transition-colors" data-value="education certifications">
@@ -86,12 +100,33 @@ import { siteConfig } from "../config";
         <div class="cmdk-group" data-group="Links">
           <div class="px-3 py-1.5 text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">Links</div>
           
-          <a href="#" class="cmdk-item flex items-center px-3 py-2.5 text-sm text-gray-700 rounded-lg hover:bg-gray-100 hover:text-gray-900 transition-colors" data-value="personal website portfolio">
-            <svg class="w-4 h-4 mr-3 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-            </svg>
-            Personal Website
-          </a>
+          {siteConfig.social.email && (
+            <a href={`mailto:${siteConfig.social.email}`} class="cmdk-item flex items-center px-3 py-2.5 text-sm text-gray-700 rounded-lg hover:bg-gray-100 hover:text-gray-900 transition-colors" data-value="email contact message">
+              <svg class="w-4 h-4 mr-3 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              Email
+            </a>
+          )}
+
+          {siteConfig.social.codolio && (
+            <a href={siteConfig.social.codolio} target="_blank" rel="noopener noreferrer" class="cmdk-item flex items-center px-3 py-2.5 text-sm text-gray-700 rounded-lg hover:bg-gray-100 hover:text-gray-900 transition-colors" data-value="codolio coding profile competitive">
+              <svg class="w-4 h-4 mr-3 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline>
+              </svg>
+              Codolio
+            </a>
+          )}
+
+          {siteConfig.social.twitter && (
+            <a href={siteConfig.social.twitter} target="_blank" rel="noopener noreferrer" class="cmdk-item flex items-center px-3 py-2.5 text-sm text-gray-700 rounded-lg hover:bg-gray-100 hover:text-gray-900 transition-colors" data-value="twitter x social">
+              <svg class="w-4 h-4 mr-3 text-gray-500" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
+              </svg>
+              X (Twitter)
+            </a>
+          )}
 
 
 

@@ -60,7 +60,7 @@ setTimeout(() => {
 
 // Active section detection for bottom nav
 const navItems = document.querySelectorAll("#bottom-nav .nav-item") as NodeListOf<HTMLElement>;
-const sectionIds = ["hero", "about", "experience", "skills", "projects", "certifications", "education"];
+const sectionIds = ["hero", "about", "experience", "projects", "education"];
 
 const updateActiveNav = () => {
   const scrollY = window.scrollY;
