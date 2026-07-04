@@ -15,7 +15,7 @@ export const siteConfig: SiteConfig = {
     github: "https://github.com/SarvagyaGupta-19",
     codolio: "https://codolio.com/profile/_SarvagyaGupta",
   },
-  resumeLink: "/SarvagyaGupta.pdf",
+  resumeLink: "/sarvagya_gupta_resume.pdf",
   about: [
     "Building AI that actually works! Currently deep into Large-Language Models and Agentic Systems, with hands-on experience taking AI projects from wild ideas to real products.",
     "Love tinkering with model fine-tuning and cloud deployments. Big open-source enthusiast - you'll find me contributing to projects that make AI more accessible to everyone."
